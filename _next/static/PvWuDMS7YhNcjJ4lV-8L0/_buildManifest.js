@@ -3,8 +3,8 @@ self.__BUILD_MANIFEST = {
     "afterFiles": [],
     "beforeFiles": [
       {
-        "source": "/WBM//_next/:path+",
-        "destination": "/WBM/_next/:path+"
+        "source": "/WBM-Investor-Access-Requriements//_next/:path+",
+        "destination": "/WBM-Investor-Access-Requriements/_next/:path+"
       }
     ],
     "fallback": []
