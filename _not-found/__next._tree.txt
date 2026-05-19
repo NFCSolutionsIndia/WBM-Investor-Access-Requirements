@@ -1,3 +1,3 @@
 :HL["/WBM-Investor-Access-Requriements/_next/static/chunks/0rw5j.b.hs2nh.css","style"]
 :HL["/WBM-Investor-Access-Requriements/_next/static/chunks/0725a66njxs.j.css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"/_not-found","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"DsmPHOyIZrAP0dp8TR8w8"}
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"/_not-found","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"PlZ3exZ1SiVF4yPLHW-G9"}
