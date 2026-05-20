@@ -1,13 +1,14 @@
 {
   "name": "wbm-app",
-  "homepage": "https://github.com/NFCSolutionsIndia/WBM.git",
+  "homepage": "https://NFCSolutionsIndia.github.io/WBM-Investor-Access-Requirements/",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "postbuild": "node postbuild-flatten-rsc.js",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d out"
+    "deploy": "gh-pages -d out -t"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.7",

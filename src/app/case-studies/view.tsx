@@ -11,7 +11,7 @@ const CaseStudies = () => {
       category: "Industrial Manufacturing",
       impact: "92%",
       impactLabel: "Recovery efficiency",
-      image: "/WBM/media/motherboard-background.jpg",
+      image: "/WBM-Investor-Access-Requirements/media/motherboard-background.jpg",
       description: "Optimized recycling workflows for a global electronics manufacturer, maximizing recovery of gold, silver, and copper from production scrap.",
       icon: <Cpu size={24} className="text-[var(--c-lime)]" />
     },
@@ -20,8 +20,8 @@ const CaseStudies = () => {
       category: "Technology & Infrastructure",
       impact: "100%",
       impactLabel: "Zero waste achieved",
-      image: "/WBM/media/insideWarehouse.png",
-      description: "Implemented an end-to-end recovery system for decommissioned server hardware, returning high-purity rare earth minerals back to the supply chain.",
+      image: "/WBM-Investor-Access-Requirements/media/insideWarehouse.png",
+      description: "Implemented an end-to-end recovery system for decommissioned server hardware, returning high-purity rare earth elements back to the supply chain.",
       icon: <Zap size={24} className="text-[var(--c-lime)]" />
     },
     {
@@ -29,7 +29,7 @@ const CaseStudies = () => {
       category: "Automotive Industry",
       impact: "85%",
       impactLabel: "Cost reduction",
-      image: "/WBM/media/Aerospace.png",
+      image: "/WBM-Investor-Access-Requirements/media/Aerospace.png",
       description: "Advanced extraction of platinum group metals from end-of-life vehicle components, providing a stable and ethical secondary source for manufacturers.",
       icon: <BarChart3 size={24} className="text-[var(--c-lime)]" />
     },
@@ -38,7 +38,7 @@ const CaseStudies = () => {
       category: "Public Sector",
       impact: "500t",
       impactLabel: "Annual CO2 offset",
-      image: "/WBM/media/destruction-smartphone-scene.jpg",
+      image: "/WBM-Investor-Access-Requirements/media/destruction-smartphone-scene.jpg",
       description: "Partnered with municipal authorities to establish a regional recovery hub, transforming public electronic waste into high-value urban resources.",
       icon: <Globe size={24} className="text-[var(--c-lime)]" />
     }

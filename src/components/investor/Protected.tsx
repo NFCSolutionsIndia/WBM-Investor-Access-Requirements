@@ -41,7 +41,7 @@ export const Protected = ({ children, fallback }: ProtectedProps) => {
         Please log in to your investor account to view this confidential content.
       </p>
       <a 
-        href="/WBM/investor/login"
+        href="/WBM-Investor-Access-Requirements/investor/login"
         className="block w-full py-4 bg-[var(--c-lime)] text-black font-bold text-xs rounded-lg uppercase tracking-widest hover:brightness-110 transition-all text-center"
       >
         Investor Login

@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(New-Item -ItemType File -Path \"C:\\\\Naveen UiUx\\\\WBMInvestor\\\\public\\\\.nojekyll\" -Force)",
+      "Bash(Out-Null)",
+      "Bash(Write-Output \"created\")",
+      "Bash(npm run *)",
+      "Bash(node \"C:/Naveen UiUx/WBMInvestor/postbuild-flatten-rsc.js\")"
+    ]
+  }
+}

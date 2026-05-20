@@ -9,7 +9,7 @@ const Industries = () => {
     {
       title: "Agribusiness",
       icon: <CheckCircle2 size={24} />,
-      image: "/WBM/media/Agribusiness.jpg",
+      image: "/WBM-Investor-Access-Requirements/media/Agribusiness.jpg",
       desc: "Precision-ag electronics and farm robotics depend on rare-earth motors and PCB-grade copper. We close the loop on decommissioned hardware.",
       tags: ["Cu", "Nd", "Al"],
       link: "/industries/agribusiness"
@@ -17,7 +17,7 @@ const Industries = () => {
     {
       title: "Advanced Manufacturing",
       icon: <CheckCircle2 size={24} />,
-      image: "/WBM/media/AdvancedManufacturing.jpg",
+      image: "/WBM-Investor-Access-Requirements/media/AdvancedManufacturing.jpg",
       desc: "Industrial robotics and CNC tooling consume permanent magnets and high-purity copper at scale. We supply OEM-grade powders and cathodes.",
       tags: ["Cu", "Nd", "Dy", "Ti"],
       link: "/industries/manufacturing"
@@ -25,7 +25,7 @@ const Industries = () => {
     {
       title: "Automotive & Mobility",
       icon: <CheckCircle2 size={24} />,
-      image: "/WBM/media/ElectricVehicles.jpg",
+      image: "/WBM-Investor-Access-Requirements/media/ElectricVehicles.jpg",
       desc: "Every EV cell and traction motor passes through our supply chain logic. We reclaim Li-Co-Ni-Mn cathodes and Nd-Dy magnets.",
       tags: ["Li", "Co", "Ni", "Nd"],
       link: "/industries/automotive"
@@ -33,7 +33,7 @@ const Industries = () => {
     {
       title: "Financial Services",
       icon: <CheckCircle2 size={24} />,
-      image: "/WBM/media/FinancialServices.jpg",
+      image: "/WBM-Investor-Access-Requirements/media/FinancialServices.jpg",
       desc: "Lenders and insurers use our published recovery KPIs and Battery Passport data to model risk and validate ESG claims.",
       tags: ["Au", "Ag"],
       link: "/industries/finance"
@@ -41,15 +41,15 @@ const Industries = () => {
     {
       title: "Healthcare & Life Sciences",
       icon: <CheckCircle2 size={24} />,
-      image: "/WBM/media/Healthcare.jpg",
-      desc: "MRI machines, surgical robots, and implantable devices use rare-earth magnets and titanium. We recover magnet assemblies.",
+      image: "/WBM-Investor-Access-Requirements/media/Healthcare.jpg",
+      desc: "MRI machines, surgical robots, and implantable devices use rare-earth Elements and titanium. We recover magnet assemblies.",
       tags: ["Nd", "Dy", "Ti", "Pd"],
       link: "/industries/healthcare"
     },
     {
       title: "Energy & Natural Resources",
       icon: <CheckCircle2 size={24} />,
-      image: "/WBM/media/EnergyPower.jpg",
+      image: "/WBM-Investor-Access-Requirements/media/EnergyPower.jpg",
       desc: "Wind turbines, grid-scale storage, and solar inverters draw on every mineral category we touch. Second-life supply for green-energy.",
       tags: ["Nd", "Dy", "Cu", "Ag", "Li"],
       link: "/industries/energy"
@@ -57,7 +57,7 @@ const Industries = () => {
     {
       title: "Media & Entertainment",
       icon: <CheckCircle2 size={24} />,
-      image: "/WBM/media/MediaEntertainment.jpg",
+      image: "/WBM-Investor-Access-Requirements/media/MediaEntertainment.jpg",
       desc: "Studios and broadcasters retire petabytes of HDD and broadcast hardware annually. We extract Nd magnets and PCB-grade Au, Ag, Pd.",
       tags: ["Au", "Ag", "Pd"],
       link: "/industries/media"
@@ -65,7 +65,7 @@ const Industries = () => {
     {
       title: "Telecommunications",
       icon: <CheckCircle2 size={24} />,
-      image: "/WBM/media/Telecommunications.jpg",
+      image: "/WBM-Investor-Access-Requirements/media/Telecommunications.jpg",
       desc: "5G base stations, fibre transceivers, and end-of-life handsets are dense with copper, gold, and palladium.",
       tags: ["Cu", "Au", "Pd"],
       link: "/industries/telecom"
@@ -73,7 +73,7 @@ const Industries = () => {
     {
       title: "Technology Services",
       icon: <CheckCircle2 size={24} />,
-      image: "/WBM/media/DataCentersAI.jpg",
+      image: "/WBM-Investor-Access-Requirements/media/DataCentersAI.jpg",
       desc: "Hyperscalers refresh server fleets every 3–5 years. We integrate with their asset-disposition programs with chain-of-custody.",
       tags: ["Au", "Ag", "Cu", "Pd"],
       link: "/industries/tech-services"
@@ -81,7 +81,7 @@ const Industries = () => {
     {
       title: "Social & Public Sector",
       icon: <CheckCircle2 size={24} />,
-      image: "/WBM/media/SustainablebyDesign.jpg",
+      image: "/WBM-Investor-Access-Requirements/media/SustainablebyDesign.jpg",
       desc: "Federal, state, and municipal IT modernisation generates secure-disposal e-waste at scale. We deliver compliant recovery.",
       tags: ["Au", "Ag", "Cu"],
       link: "/industries/public-sector"
@@ -89,7 +89,7 @@ const Industries = () => {
     {
       title: "Forest Products",
       icon: <CheckCircle2 size={24} />,
-      image: "/WBM/media/Agribusiness.jpg",
+      image: "/WBM-Investor-Access-Requirements/media/Agribusiness.jpg",
       desc: "Sawmill electrification and biomass-energy plants run on rugged drives and inverters. Circular path for power-electronics.",
       tags: ["Cu", "Al"],
       link: "/industries/forest"
@@ -97,7 +97,7 @@ const Industries = () => {
     {
       title: "Aerospace & Defense",
       icon: <CheckCircle2 size={24} />,
-      image: "/WBM/media/AerospaceDefense.jpg",
+      image: "/WBM-Investor-Access-Requirements/media/AerospaceDefense.jpg",
       desc: "Strategic mineral security and aerospace-grade purity for high-performance applications requiring absolute traceability.",
       tags: ["Nd", "Dy", "Ti", "Co"],
       link: "/industries/aerospace"

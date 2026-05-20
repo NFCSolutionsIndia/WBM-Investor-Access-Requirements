@@ -37,7 +37,7 @@ export const verifyAndLogin = (key: string, email: string): boolean => {
 export const logout = () => {
   localStorage.removeItem(SESSION_KEY);
   if (typeof window !== "undefined") {
-    window.location.href = "/WBM/investor/login";
+    window.location.href = "/WBM-Investor-Access-Requirements/investor/login";
   }
 };
 

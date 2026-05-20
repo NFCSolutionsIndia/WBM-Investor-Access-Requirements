@@ -5,35 +5,10 @@ import { RefreshCw, Globe, MapPin, Wind, Zap, Database, ArrowRight, Shield, Laye
 import Hyperspeed from '@/components/ui/backgrounds/Hyperspeed';
 import Button from '@/components/ui/Button';
 import { useTheme } from '@/components/ui/ThemeProvider';
-import { Protected } from '@/components/investor/Protected';
+import { CustomVideoPlayer } from '@/components/investor/CustomVideoPlayer';
 
 const CircularEconomy = () => {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [progress, setProgress] = useState(0);
   const { theme } = useTheme();
-
-  const togglePlay = () => {
-    if (videoRef.current) {
-      if (isPlaying) videoRef.current.pause();
-      else videoRef.current.play();
-      setIsPlaying(!isPlaying);
-    }
-  };
-
-  const skip = (amount: number) => {
-    if (videoRef.current) {
-      videoRef.current.currentTime += amount;
-    }
-  };
-
-  const handleFullScreen = () => {
-    const video = videoRef.current as any;
-    if (video) {
-      if (video.requestFullscreen) video.requestFullscreen();
-      else if (video.webkitRequestFullscreen) video.webkitRequestFullscreen();
-    }
-  };
 
   const layers = [
     {
@@ -90,25 +65,16 @@ const CircularEconomy = () => {
               Geographic, global, operational - circles inside circles, every one of them deliberate.
             </p>
 
-            <div className="flex justify-center">
-              <Protected
-                fallback={
-                  <Button href="/investor/login" variant="outline" size="lg">
-                    <Lock size={18} className="mr-2" />
-                    Login to Access Pitch Deck
-                  </Button>
-                }
+            {/* <div className="flex justify-center">
+              <a 
+                href="/WBM-Investor-Access-Requirements/investor/viewer"
+                className="flex items-center justify-center gap-3 h-14 px-8 rounded-[10px] border border-white/10 bg-white/5 text-white font-sans font-black text-sm uppercase tracking-widest hover:bg-white/10 hover:border-white/20 transition-all backdrop-blur-md"
+                onContextMenu={(e) => e.preventDefault()}
               >
-                <a 
-                  href="/WBM/investor/viewer"
-                  className="flex items-center justify-center gap-3 h-14 px-8 rounded-[10px] border border-white/10 bg-white/5 text-white font-sans font-black text-sm uppercase tracking-widest hover:bg-white/10 hover:border-white/20 transition-all backdrop-blur-md"
-                  onContextMenu={(e) => e.preventDefault()}
-                >
-                  <span className="opacity-60 text-lg">📄</span>
-                  <span>View Pitch Deck</span>
-                </a>
-              </Protected>
-            </div>
+                <span className="opacity-60 text-lg">📄</span>
+                <span>View Pitch Deck</span>
+              </a>
+            </div> */}
           </motion.div>
         </div>
       </section>
@@ -160,7 +126,7 @@ const CircularEconomy = () => {
               className="relative rounded-[24px] overflow-hidden"
             >
               <img 
-                src={theme === 'dark' ? "/WBM/media/CircularEconomyDark.png" : "/WBM/media/CircularEconomy.png"} 
+                src={theme === 'dark' ? "/WBM-Investor-Access-Requirements/media/CircularEconomyDark.png" : "/WBM-Investor-Access-Requirements/media/CircularEconomy.png"} 
                 alt="Circular Economy Ecosystem" 
                 className="w-full h-auto block object-contain"
               />
@@ -171,93 +137,15 @@ const CircularEconomy = () => {
 
       {/* Investor Video - Operational Deep Dive */}
       <section className="w-full bg-[#0a0a0a] overflow-hidden py-0">
-        <Protected>
-          <div className="w-full relative overflow-hidden bg-[#0a0a0a] group">
-             <video 
-               ref={videoRef}
-               src="/WBM/media/Investor2.mp4" 
-               playsInline 
-               controlsList="nodownload"
-               onContextMenu={(e) => e.preventDefault()}
-               disablePictureInPicture
-               onTimeUpdate={(e) => setProgress((e.currentTarget.currentTime / e.currentTarget.duration) * 100)}
-               onPlay={() => setIsPlaying(true)}
-               onPause={() => setIsPlaying(false)}
-               className="w-full h-auto block group-hover:opacity-100 transition-opacity duration-700 cursor-pointer"
-               onClick={togglePlay}
-             />
-             
-             {/* Play/Pause/Skip Controls Overlay */}
-             <AnimatePresence>
-               {!isPlaying && (
-                 <motion.div 
-                   initial={{ opacity: 0 }}
-                   animate={{ opacity: 1 }}
-                   exit={{ opacity: 0 }}
-                   className="absolute inset-0 flex items-center justify-center z-30 bg-black/20 backdrop-blur-[2px]"
-                 >
-                    <div className="flex items-center gap-6 md:gap-10">
-                       <button
-                         onClick={(e) => { e.stopPropagation(); skip(-10); }}
-                         className="text-white/80 hover:text-[var(--c-highlight)] transition-all p-2 hover:scale-110"
-                       >
-                         <Rewind size={32} className="fill-white/10" />
-                       </button>
-
-                       <div 
-                         className="w-20 h-20 md:w-28 md:h-28 bg-[var(--c-highlight)]/20 backdrop-blur-md rounded-full flex items-center justify-center shadow-[0_0_50px_rgba(131,148,112,0.3)] cursor-pointer hover:scale-110 transition-transform border border-white/20"
-                         onClick={(e) => { e.stopPropagation(); togglePlay(); }}
-                       >
-                          <Play size={40} className="text-white fill-white ml-1.5" />
-                       </div>
-
-                       <button
-                         onClick={(e) => { e.stopPropagation(); skip(10); }}
-                         className="text-white/80 hover:text-[var(--c-highlight)] transition-all p-2 hover:scale-110"
-                       >
-                         <FastForward size={32} className="fill-white/10" />
-                       </button>
-                    </div>
-                 </motion.div>
-               )}
-             </AnimatePresence>
-
-             {/* Progress Bar */}
-             <div className="absolute bottom-0 left-0 w-full h-1 bg-white/10 z-30">
-               <motion.div 
-                 className="h-full bg-[var(--c-highlight)]" 
-                 initial={{ width: 0 }}
-                 animate={{ width: `${progress}%` }}
-                 transition={{ type: "spring", bounce: 0, duration: 0.1 }}
-               />
-             </div>
-
-             {/* Text Overlay - Only when NOT playing */}
-             {!isPlaying && (
-               <>
-                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-black/20 pointer-events-none" />
-                 
-                 <button 
-                   onClick={(e) => { e.stopPropagation(); handleFullScreen(); }}
-                   className="absolute top-6 right-6 w-10 h-10 bg-black/40 backdrop-blur-md rounded-full border border-white/10 flex items-center justify-center text-white hover:bg-[var(--c-highlight)] hover:text-black transition-all z-20"
-                 >
-                    <Maximize size={18} />
-                 </button>
-
-                 <div className="absolute bottom-8 left-8 md:bottom-12 md:left-12 z-10">
-                    <div className="flex items-center gap-2 mb-4">
-                       <div className="w-2 h-2 rounded-full bg-[var(--c-highlight)] animate-pulse" />
-                       <span className="text-[10px] font-black text-white uppercase tracking-[0.3em]">Processing Prowess</span>
-                    </div>
-                    <h4 className="text-2xl md:text-4xl font-black text-white uppercase tracking-tighter">Advanced Recovery Systems</h4>
-                 </div>
-               </>
-             )}
-          </div>
-        </Protected>
+        <CustomVideoPlayer 
+          src="/WBM-Investor-Access-Requirements/media/Investor22.mp4"
+          badgeText="Processing Prowess"
+          title="Advanced Recovery Systems"
+          className="rounded-none border-x-0 border-y border-[var(--c-border)]"
+        />
       </section>
 
-      {/* Comparison Infographic */}
+            {/* Comparison Infographic */}
       <section className="py-10 bg-[#0a0a0a] relative overflow-hidden">
         <div className="max-w-[1440px] mx-auto px-0 md:px-6">
            <div className="text-center mb-8">
@@ -272,9 +160,9 @@ const CircularEconomy = () => {
              className="relative max-w-[1280px] mx-auto md:rounded-[10px] md:overflow-hidden"
            >
               {/* Desktop Image */}
-              <img src="/WBM/media/Linear_and_Circular Difference_Dark.png" alt="Linear vs Circular Economy" className="hidden lg:block w-full h-auto object-contain mx-auto" />
+              <img src="/WBM-Investor-Access-Requirements/media/Linear_and_Circular Difference_Dark.png" alt="Linear vs Circular Economy" className="hidden lg:block w-full h-auto object-contain mx-auto" />
               {/* Mobile Image */}
-              <img src="/WBM/media/Linear_and_Circular_Mobile_View.png" alt="Linear vs Circular Economy" className="lg:hidden w-full h-auto object-contain mx-auto" />
+              <img src="/WBM-Investor-Access-Requirements/media/Linear_and_Circular_Mobile_View.png" alt="Linear vs Circular Economy" className="lg:hidden w-full h-auto object-contain mx-auto" />
            </motion.div>
         </div>
       </section>

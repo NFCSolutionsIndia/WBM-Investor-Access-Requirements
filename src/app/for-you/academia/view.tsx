@@ -99,7 +99,7 @@ const ForYouAcademia = () => {
             </h1>
             
             <p className="text-xl md:text-2xl text-gray-400 font-medium leading-relaxed max-w-2xl mx-auto mb-10">
-               Research collaborations, white papers, internships, and guest lectures. Engineering-first — published SLAs and KPIs.
+               Research collaborations, white papers, internships, and guest lectures — built around an engineering-first culture with published SLAs, measurable KPIs, and operational transparency.
             </p>
 
             <div className="flex flex-wrap justify-center gap-4">

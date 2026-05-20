@@ -3,8 +3,8 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   output: "export",
 
-  basePath: "/WBM",
-  assetPrefix: "/WBM/",
+  basePath: "/WBM-Investor-Access-Requirements",
+  trailingSlash: true,
 
   images: {
     unoptimized: true,   // ✅ VERY IMPORTANT

@@ -65,8 +65,8 @@ const WhatWeDo = () => {
                     <Zap size={20} />
                   </div>
                   <div className="text-left">
-                    <div className="text-white font-bold uppercase text-xs">Rare Earth Magnets</div>
-                    <div className="text-white/40 text-[10px]">Rare-Earth Elements</div>
+                    <div className="text-white font-bold uppercase text-xs">Rare Earth Elements</div>
+                    <div className="text-white/40 text-[10px]">Rare Earth Elements</div>
                   </div>
                </div>
             </div>
@@ -278,13 +278,13 @@ const WhatWeDo = () => {
         </div>
       </section>
 
-      {/* Rare Earth Magnets Section */}
-      <section id="rare-earth-magnets" className="py-10 bg-[var(--c-fg)]/5">
+      {/* Rare Earth Elements Section */}
+      <section id="rare-earth-elements" className="py-10 bg-[var(--c-fg)]/5">
         <div className="max-w-7xl mx-auto px-6 sm:px-8">
           <div className="flex flex-col md:flex-row justify-between items-start mb-10 gap-8">
             <div className="max-w-3xl text-left">
               <div className="text-[var(--c-lime)] font-black text-[10px] uppercase tracking-widest mb-4">Integrated Waste Stream 03</div>
-              <h2 className="section-title font-black text-[var(--c-fg)] tracking-tight mb-6 uppercase">Rare Earth <span className="text-[var(--c-lime)]">Magnets.</span></h2>
+              <h2 className="section-title font-black text-[var(--c-fg)] tracking-tight mb-6 uppercase">Rare Earth <span className="text-[var(--c-lime)]">Elements.</span></h2>
               <p className="text-xl text-[var(--c-fg3)] font-medium leading-relaxed">
                 Recovering Neodymium and Dysprosium from high-performance magnets used in EV motors, wind turbines, and data center drives.
               </p>

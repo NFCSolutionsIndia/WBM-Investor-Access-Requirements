@@ -56,7 +56,7 @@ const paths = [
     content: {
       title: "FEEDSTOCK SUPPLIER",
       subtitle: "Sell Your Waste",
-      description: "Monetize your electronic waste, lithium-ion batteries, and rare-earth magnets through our high-efficiency tipping models.",
+      description: "Monetize your electronic waste, lithium-ion batteries, and rare-earth Elements through our high-efficiency tipping models.",
       bullets: [
         "Government-paid intake fees",
         "Zero-landfill certification",

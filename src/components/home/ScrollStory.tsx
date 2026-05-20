@@ -8,7 +8,7 @@ const chapters = [
   {
     num: "01",
     title: "E-Waste Extraction",
-    image: "/WBM/media/E-waste_processing.jpg",
+    image: "/WBM-Investor-Access-Requirements/media/E-waste_processing.jpg",
     icon: <CircuitBoard className="w-5 h-5" />,
     features: [
       "Automated PCB and semiconductor recovery",
@@ -20,7 +20,7 @@ const chapters = [
   {
     num: "02",
     title: "B-Waste Recycling",
-    image: "/WBM/media/Lithium_Recovery.png",
+    image: "/WBM-Investor-Access-Requirements/media/Lithium_Recovery.png",
     icon: <Battery className="w-5 h-5" />,
     features: [
       "Lithium-ion battery recycling systems",
@@ -31,12 +31,12 @@ const chapters = [
   },
   {
     num: "03",
-    title: "Rare Earth Magnets",
-    image: "/WBM/media/RareEarthElements.jpg",
+    title: "Rare Earth Elements",
+    image: "/WBM-Investor-Access-Requirements/media/RareEarthElements.jpg",
     icon: <Magnet className="w-5 h-5" />,
     features: [
       "Neodymium and dysprosium extraction",
-      "Rare earth magnet separation technology",
+      "Rare earth element separation technology",
       "Precision refinement and purification",
       "Critical mineral recovery at industrial scale"
     ]

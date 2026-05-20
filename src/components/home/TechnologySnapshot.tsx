@@ -37,7 +37,7 @@ export default function TechnologySnapshot() {
           <ScrollReveal direction="right">
             <div className="relative aspect-square md:aspect-video lg:aspect-square rounded-[32px] overflow-hidden border border-white/5 group">
               <Image 
-                src="/WBM/media/BackgroundImgHero.png"
+                src="/WBM-Investor-Access-Requirements/media/BackgroundImgHero.png"
                 alt="Plant Interior"
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-105"

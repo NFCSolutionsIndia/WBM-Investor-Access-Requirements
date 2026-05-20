@@ -56,7 +56,7 @@ export default function NumbersThatSpeak() {
         className="absolute inset-0 z-0"
       >
         <Image
-          src="/WBM/media/BackgroundImgHero.png"
+          src="/WBM-Investor-Access-Requirements/media/BackgroundImgHero.png"
           alt="Facility background"
           fill
           className="object-cover opacity-70"

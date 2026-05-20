@@ -362,7 +362,7 @@ const ForYouTenant = () => {
                     {[
                       { title: "Coolant Fluids", desc: "Coolant-grade fluids recovered & refined at end-of-life.", icon: <Activity size={20} /> },
                       { title: "Heat-Exchangers", desc: "Copper & Aluminium recovered from cold plates.", icon: <Thermometer size={20} /> },
-                      { title: "Magnet-Cooling", desc: "Rare-earth magnets returned via the closed-loop wing.", icon: <Magnet size={20} /> },
+                      { title: "Magnet-Cooling", desc: "Rare-earth Elements returned via the closed-loop wing.", icon: <Magnet size={20} /> },
                       { title: "Closed-Loop", desc: "Feeds the Closed-Loop Feedstock wing of our Butterfly.", icon: <Recycle size={20} /> },
                     ].map((item, i) => (
                       <div key={i} className="p-6 rounded-2xl border border-[var(--c-border)] bg-[var(--c-bg)] group hover:border-[var(--c-lime)] transition-all">

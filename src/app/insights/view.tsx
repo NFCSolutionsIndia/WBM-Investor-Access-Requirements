@@ -16,7 +16,7 @@ const Insights = () => {
       category: "Technology",
       date: "Oct 24, 2026",
       author: "Dr. Sarah Chen",
-      image: "/WBM/media/1.png",
+      image: "/WBM-Investor-Access-Requirements/media/1.png",
       excerpt: "How computer vision and machine learning are enabling 99% accuracy in automated sorting of complex electronic waste.",
       featured: true
     },
@@ -25,15 +25,15 @@ const Insights = () => {
       category: "Technology",
       date: "Oct 18, 2026",
       author: "Marcus Thorne",
-      image: "/WBM/media/2.png",
+      image: "/WBM-Investor-Access-Requirements/media/2.png",
       excerpt: "Exploring the next generation of robotic systems designed to safely disassemble delicate electronics at scale."
     },
     {
-      title: "Building a closed-loop supply chain for rare earth minerals",
+      title: "Building a closed-loop supply chain for rare earth elements",
       category: "Supply Chain",
       date: "Oct 12, 2026",
       author: "Elena Rodriguez",
-      image: "/WBM/media/3.png",
+      image: "/WBM-Investor-Access-Requirements/media/3.png",
       excerpt: "Strategies for manufacturers to secure critical minerals while reducing reliance on virgin mining operations."
     },
     {
@@ -41,7 +41,7 @@ const Insights = () => {
       category: "Industry News",
       date: "Oct 05, 2026",
       author: "David Haul",
-      image: "/WBM/media/outsideWarehouse.png",
+      image: "/WBM-Investor-Access-Requirements/media/outsideWarehouse.png",
       excerpt: "An overview of the upcoming environmental directives and how they will impact global manufacturing standards."
     },
     {
@@ -49,7 +49,7 @@ const Insights = () => {
       category: "Sustainability",
       date: "Sep 28, 2026",
       author: "Dr. Julian Voss",
-      image: "/WBM/media/SustainablebyDesign.jpg",
+      image: "/WBM-Investor-Access-Requirements/media/SustainablebyDesign.jpg",
       excerpt: "A deep dive into the life cycle assessment of recycled minerals versus traditional mining output."
     }
   ];

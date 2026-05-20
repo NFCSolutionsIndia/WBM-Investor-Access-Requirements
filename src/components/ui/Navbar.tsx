@@ -91,7 +91,7 @@ export default function Navbar() {
           subLinks: [
             { name: 'E-Waste', href: '/what-we-do#e-waste' },
             { name: 'B-Waste', href: '/what-we-do#b-waste' },
-            { name: 'Rare Earth Magnets', href: '/what-we-do#rare-earth-magnets' },
+            { name: 'Rare Earth Elements', href: '/what-we-do#rare-earth-elements' },
           ]
         },
         { name: 'Technology', href: '/technology' },
@@ -152,7 +152,7 @@ export default function Navbar() {
           <motion.div whileHover={{ scale: 1.02 }} transition={{ type: "spring", stiffness: 400, damping: 10 }}>
             <div className="transition-all duration-500 flex items-center">
               <Image 
-                src={theme === 'dark' ? "/WBM/WBMLogoWhiteText.png" : "/WBM/WBMLogo.svg"} 
+                src={theme === 'dark' ? "/WBM-Investor-Access-Requirements/WBMLogoWhiteText.png" : "/WBM-Investor-Access-Requirements/WBMLogo.svg"} 
                 alt="Waste Be Minerals" 
                 width={110} 
                 height={28} 
@@ -258,7 +258,7 @@ export default function Navbar() {
           {/* Mobile Menu Header */}
           <div className="flex items-center justify-between px-8 py-8 border-b border-white/5">
             <Image 
-              src="/WBM/WBMLogoWhiteText.png" 
+              src="/WBM-Investor-Access-Requirements/WBMLogoWhiteText.png" 
               alt="Waste Be Minerals" 
               width={120} 
               height={30} 

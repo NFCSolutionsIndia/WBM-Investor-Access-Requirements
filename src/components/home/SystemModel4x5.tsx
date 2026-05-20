@@ -9,7 +9,7 @@ import ScrollReveal from "@/components/ui/effects/ScrollReveal";
 const OFFERINGS = [
   { id: "ewaste",  label: "E-Waste",         short: "EW",    accent: "#839470", icon: <CircuitBoard size={20} />, desc: "PCBs, chips, laptops, servers — extracted under one roof." },
   { id: "bwaste",  label: "B-Waste",         short: "BW",    accent: "#9F7AEA", icon: <Battery size={20} />, desc: "Lithium-ion only. No acid-filled. Closed-loop chemistry." },
-  { id: "ree",     label: "Rare Earth Magnets", short: "REE",   accent: "#F6AD55", icon: <Magnet size={20} />, desc: "Rare-earth magnets from MRIs, wind turbines, decommissioned units." },
+  { id: "ree",     label: "Rare Earth Elements", short: "REE",   accent: "#F6AD55", icon: <Magnet size={20} />, desc: "Rare-earth elements from MRIs, wind turbines, decommissioned units." },
   { id: "aidc",    label: "AI Data Centres", short: "AI-DC", accent: "#F687B3", icon: <Database size={20} />, desc: "Co-located, multi-tenant, 6-layer encryption, 100% uptime." },
 ];
 
@@ -249,8 +249,8 @@ export default function SystemModel4x5({ isDark = true }: { isDark?: boolean }) 
           {/* ── LEFT: Offerings ── */}
           <div>
             <div className="mb-4">
-              <span className="font-sans font-bold text-[10px] uppercase tracking-[0.25em]" style={{ color: isDark ? "#839470" : "#1A4D2E" }}>4 Offerings</span>
-              <p className="font-sans text-xs mt-1" style={{ color: fg3 }}>Three waste streams. One AI orchestration layer.</p>
+              <span className="font-sans font-black text-sm md:text-base uppercase tracking-[0.25em]" style={{ color: isDark ? "#839470" : "#1A4D2E" }}>4 Offerings</span>
+              <p className="font-sans text-sm mt-1 font-medium" style={{ color: fg2 }}>Three waste streams. One AI orchestration layer.</p>
             </div>
             <div className="flex flex-col gap-3">
               {OFFERINGS.map(off => (
@@ -288,8 +288,8 @@ export default function SystemModel4x5({ isDark = true }: { isDark?: boolean }) 
           {/* ── MIDDLE: Revenue Streams ── */}
           <div>
             <div className="mb-4">
-              <span className="font-sans font-bold text-[10px] uppercase tracking-[0.25em]" style={{ color: isDark ? "#839470" : "#1A4D2E" }}>5 Revenue Streams</span>
-              <p className="font-sans text-xs mt-1" style={{ color: fg3 }}>Each offering compounds across multiple lines.</p>
+              <span className="font-sans font-black text-sm md:text-base uppercase tracking-[0.25em]" style={{ color: isDark ? "#839470" : "#1A4D2E" }}>5 Revenue Streams</span>
+              <p className="font-sans text-sm mt-1 font-medium" style={{ color: fg2 }}>Each offering compounds across multiple lines.</p>
             </div>
             <div className="flex flex-col gap-3">
               {REVENUES.map(rev => (
@@ -322,13 +322,13 @@ export default function SystemModel4x5({ isDark = true }: { isDark?: boolean }) 
           {/* ── RIGHT: Minerals ── */}
           <div>
             <div className="mb-4">
-              <span className="font-sans font-bold text-[10px] uppercase tracking-[0.25em]" style={{ color: isDark ? "#839470" : "#1A4D2E" }}>11 Minerals</span>
-              <p className="font-sans text-xs mt-1" style={{ color: fg3 }}>From 118 — these are the ones that matter.</p>
+              <span className="font-sans font-black text-sm md:text-base uppercase tracking-[0.25em]" style={{ color: isDark ? "#839470" : "#1A4D2E" }}>11 Minerals</span>
+              <p className="font-sans text-sm mt-1 font-medium" style={{ color: fg2 }}>From 118 — these are the ones that matter.</p>
             </div>
 
             {/* Precious Metals */}
             <div className="mb-5">
-              <span className="font-sans text-[9px] uppercase tracking-[0.2em] mb-2 block" style={{ color: fg3 }}>Precious Metals</span>
+              <span className="font-sans text-xs font-bold uppercase tracking-[0.2em] mb-2 block" style={{ color: fg2 }}>Precious Metals</span>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                 {MINERALS.filter(m => m.group === "precious").map(m => (
                   <motion.div key={m.id} ref={el => { mineralRefs.current[m.id] = el; }}
@@ -352,7 +352,7 @@ export default function SystemModel4x5({ isDark = true }: { isDark?: boolean }) 
 
             {/* Critical Minerals */}
             <div className="mb-5">
-              <span className="font-sans text-[9px] uppercase tracking-[0.2em] mb-2 block" style={{ color: fg3 }}>Critical Minerals</span>
+              <span className="font-sans text-xs font-bold uppercase tracking-[0.2em] mb-2 block" style={{ color: fg2 }}>Critical Minerals</span>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                 {MINERALS.filter(m => m.group === "critical").map(m => (
                   <motion.div key={m.id} ref={el => { mineralRefs.current[m.id] = el; }}
@@ -376,7 +376,7 @@ export default function SystemModel4x5({ isDark = true }: { isDark?: boolean }) 
 
             {/* REE */}
             <div>
-              <span className="font-sans text-[9px] uppercase tracking-[0.2em] mb-2 block" style={{ color: fg3 }}>Rare-Earth Elements</span>
+              <span className="font-sans text-xs font-bold uppercase tracking-[0.2em] mb-2 block" style={{ color: fg2 }}>Rare-Earth Elements</span>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                 {MINERALS.filter(m => m.group === "ree").map(m => (
                   <motion.div key={m.id} ref={el => { mineralRefs.current[m.id] = el; }}

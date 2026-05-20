@@ -23,7 +23,7 @@ const Technology = () => {
       title: <>Advanced Chemical <span className="text-[var(--c-lime)]">Extraction</span></>,
       desc: "Hydrometallurgical processes optimized for high-yield recovery of rare earth elements and precious metals with minimal environmental footprint.",
       icon: <Zap className="text-white" size={32} />,
-      image: "/WBM/media/Material_recovery_Extraction.jpg"
+      image: "/WBM-Investor-Access-Requirements/media/Material_recovery_Extraction.jpg"
     }
   ];
 
@@ -145,7 +145,7 @@ const Technology = () => {
                  transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
                  className="relative z-20 rounded-[10px] overflow-hidden shadow-2xl border border-white/10"
                >
-                 <img src="/WBM/media/Material_recovery_Extraction.jpg" alt="R&D Lab" className="w-full h-auto" />
+                 <img src="/WBM-Investor-Access-Requirements/media/Material_recovery_Extraction.jpg" alt="R&D Lab" className="w-full h-auto" />
                </motion.div>
                
                {/* Decorative light flare */}

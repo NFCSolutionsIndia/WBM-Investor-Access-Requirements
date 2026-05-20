@@ -53,7 +53,7 @@ export default function HeroSection() {
             ref={(el) => {
               if (el) el.playbackRate = 0.5; // Slower playback for smoother viewing
             }}
-            src="/WBM/media/BackgroundVideoHero.mp4"
+            src="/WBM-Investor-Access-Requirements/media/BackgroundVideoHero.mp4"
             autoPlay
             loop
             muted
@@ -149,7 +149,7 @@ export default function HeroSection() {
                     View Data Centre Specs
                   </Link>
                   <a 
-                    href="/WBM/media/PitchDeskForWBM.pdf"
+                    href="/WBM-Investor-Access-Requirements/media/PitchDeskForWBM.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center justify-center gap-3 h-12 md:h-16 px-6 md:px-8 rounded-[10px] border border-white/10 bg-white/5 text-white font-sans font-black text-[11px] md:text-sm uppercase tracking-widest hover:bg-white/10 hover:border-white/20 transition-all"

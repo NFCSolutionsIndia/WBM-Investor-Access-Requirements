@@ -74,10 +74,13 @@ const About = () => {
                 Our <span className="text-[var(--c-lime)]">Story</span>
               </h2>
               <p className="text-lg text-gray-500 font-medium leading-relaxed mb-6">
-                Urban mining isn't just a mission. It's a necessity. Traditional mining is too slow, too dirty, and too concentrated in non-allied geographies. We are the bridge between the waste of today and the world engines of tomorrow.
+                Urban mining is not a future concept. It is an industrial necessity.
+              </p>
+              <p className="text-lg text-gray-500 font-medium leading-relaxed mb-6">
+                At Waste-Be Minerals, we transform electronic waste into critical resources for the next generation of manufacturing. Through industrial shredding, AI-driven sorting, and advanced recovery systems, we convert urban waste into strategic supply.
               </p>
               <p className="text-lg text-gray-500 font-medium leading-relaxed mb-10">
-                By design, not by default. WBM does not operate in non-allied parts of Asia. Our semi-circle of allied geographies is the bypass route.
+                Traditional mining is slow, environmentally destructive, and increasingly concentrated in non-allied regions. WBM operates across allied geographies, creating a resilient bypass route for critical mineral recovery, industrial independence, and supply chain security.
               </p>
               <div className="flex flex-wrap gap-8 items-center">
                 <div>
@@ -89,6 +92,11 @@ const About = () => {
                   <div className="text-4xl font-bold text-[var(--c-fg)] mb-1">500k+</div>
                   <div className="text-sm font-bold text-gray-400 uppercase tracking-widest">Tons Recovered</div>
                 </div>
+                <div className="w-px h-12 bg-gray-200 hidden sm:block"></div>
+                <div>
+                  <div className="text-4xl font-bold text-[var(--c-fg)] mb-1">98%</div>
+                  <div className="text-sm font-bold text-gray-400 uppercase tracking-widest">Purity Achieved</div>
+                </div>
               </div>
             </motion.div>
             
@@ -99,12 +107,9 @@ const About = () => {
               className="relative"
             >
               <div className="rounded-[24px] overflow-hidden shadow-2xl">
-                <img src="/WBM/media/Rectangle_34.png" alt="Our Facility" className="w-full h-auto" />
+                <img src="/WBM-Investor-Access-Requirements/media/Rectangle_34.png" alt="Our Facility" className="w-full h-auto" />
               </div>
-              <div className="absolute -bottom-10 -left-10 bg-[var(--c-lime)] p-8 rounded-[20px] shadow-xl hidden md:block">
-                 <div className="text-black text-4xl font-bold mb-1">98%</div>
-                 <div className="text-black/80 text-sm font-bold uppercase tracking-widest">Purity Achieved</div>
-              </div>
+              
             </motion.div>
           </div>
         </div>

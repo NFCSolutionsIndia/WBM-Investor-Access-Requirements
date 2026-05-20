@@ -51,9 +51,9 @@ const DataCenters = () => {
               Enterprise-grade recovery solutions for the world's largest data centers, ensuring secure, sustainable management of retired hardware.
             </p>
 
-            <div className="flex justify-center">
+            {/* <div className="flex justify-center">
               <a 
-                href="/WBM/media/PitchDeskForWBM.pdf"
+                href="/WBM-Investor-Access-Requirements/media/PitchDeskForWBM.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-3 h-14 px-8 rounded-[10px] border border-white/10 bg-white/5 text-white font-sans font-black text-sm uppercase tracking-widest hover:bg-white/10 hover:border-white/20 transition-all backdrop-blur-md"
@@ -61,7 +61,7 @@ const DataCenters = () => {
                 <span className="opacity-60 text-lg">📄</span>
                 <span>Download Pitch Deck</span>
               </a>
-            </div>
+            </div> */}
           </motion.div>
         </div>
       </section>
@@ -98,7 +98,7 @@ const DataCenters = () => {
             {/* Desktop View */}
             <div className="hidden md:block">
               <img 
-                src={theme === 'dark' ? "/WBM/media/DATACENTERS_Dark.png" : "/WBM/media/DATACENTERS_Light.png"} 
+                src={theme === 'dark' ? "/WBM-Investor-Access-Requirements/media/DATACENTERS_Dark.png" : "/WBM-Investor-Access-Requirements/media/DATACENTERS_Light.png"} 
                 alt="Key Minerals in Data Centers Desktop Infographic" 
                 className="w-full h-auto object-contain"
               />
@@ -107,7 +107,7 @@ const DataCenters = () => {
             {/* Mobile View */}
             <div className="block md:hidden">
               <img 
-                src={theme === 'dark' ? "/WBM/media/DATACENTERS_Mobile_Dark.png" : "/WBM/media/DATACENTERS_Light_Mobile.png"} 
+                src={theme === 'dark' ? "/WBM-Investor-Access-Requirements/media/DATACENTERS_Mobile_Dark.png" : "/WBM-Investor-Access-Requirements/media/DATACENTERS_Light_Mobile.png"} 
                 alt="Key Minerals in Data Centers Mobile Infographic" 
                 className="w-full h-auto object-contain"
               />
@@ -153,7 +153,7 @@ const DataCenters = () => {
                 transition={{ duration: 1 }}
                 className="rounded-[20px] overflow-hidden shadow-[0_50px_100px_-20px_rgba(0,0,0,0.3)] border border-white/10"
               >
-                <img src="/WBM/media/DataCentersAI.jpg" alt="Data Center Hardware" className="w-full h-auto" />
+                <img src="/WBM-Investor-Access-Requirements/media/DataCentersAI.jpg" alt="Data Center Hardware" className="w-full h-auto" />
               </motion.div>
               <div className="absolute inset-0 bg-gradient-to-tr from-[var(--c-lime)]/20 to-transparent pointer-events-none rounded-[20px]"></div>
             </div>

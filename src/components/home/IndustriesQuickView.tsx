@@ -9,31 +9,31 @@ import ScrollReveal from "@/components/ui/effects/ScrollReveal";
 const industries = [
   { 
     name: "Electric Vehicles", 
-    img: "/WBM/media/ElectricVehicles.jpg",
+    img: "/WBM-Investor-Access-Requirements/media/ElectricVehicles.jpg",
     minerals: ["Lithium", "Cobalt", "Nickel", "Graphite"],
     desc: "Powering the next generation of zero-emission mobility with high-purity recycled minerals."
   },
   { 
     name: "AI Infrastructure", 
-    img: "/WBM/media/DataCentersAI.jpg",
+    img: "/WBM-Investor-Access-Requirements/media/DataCentersAI.jpg",
     minerals: ["Copper", "Silicon", "Gold", "Gallium"],
     desc: "Critical components for high-performance compute and neural processing units."
   },
   { 
     name: "Aerospace", 
-    img: "/WBM/media/AerospaceDefense.jpg",
+    img: "/WBM-Investor-Access-Requirements/media/AerospaceDefense.jpg",
     minerals: ["Titanium", "Aluminum", "Scandium"],
     desc: "Lightweight, high-strength alloys for extreme performance environments."
   },
   { 
     name: "Consumer Electronics", 
-    img: "/WBM/media/ConsumerElectronics.jpg",
+    img: "/WBM-Investor-Access-Requirements/media/ConsumerElectronics.jpg",
     minerals: ["Gold", "Silver", "Palladium", "Platinum"],
     desc: "Closing the loop on high-value precious metals from discarded devices."
   },
   { 
     name: "Energy & Power", 
-    img: "/WBM/media/EnergyPower.jpg",
+    img: "/WBM-Investor-Access-Requirements/media/EnergyPower.jpg",
     minerals: ["Neodymium", "Praseodymium", "Dysprosium"],
     desc: "Essential rare earth elements for permanent magnets in wind turbines."
   }

@@ -16,16 +16,16 @@ const ForAllJourneys = () => {
       icon: <TrendingUp size={24} />,
       href: "/for-you/investor",
       cta: "View Thesis",
-      img: "/WBM/media/FinancialServices.jpg"
+      img: "/WBM-Investor-Access-Requirements/media/FinancialServices.jpg"
     },
     {
       title: "Customer / OEM",
-      desc: "Battery-grade lithium, cobalt, nickel, plus precious metals and rare earths — published SLAs, traceable to source.",
+      desc: "Battery-grade lithium, cobalt, nickel, plus precious metals and rare earth elements — published SLAs, traceable to source.",
       bullets: ["OEM-grade purity", "Published SLAs", "Battery passport ready"],
       icon: <Cpu size={24} />,
       href: "/for-you/customer",
       cta: "Browse Minerals",
-      img: "/WBM/media/ElectricVehicles.jpg"
+      img: "/WBM-Investor-Access-Requirements/media/ElectricVehicles.jpg"
     },
     {
       title: "Supplier",
@@ -34,7 +34,7 @@ const ForAllJourneys = () => {
       icon: <Truck size={24} />,
       href: "/for-you/supplier",
       cta: "Start a supply contract",
-      img: "/WBM/media/E-waste_processing.jpg"
+      img: "/WBM-Investor-Access-Requirements/media/E-waste_processing.jpg"
     },
     {
       title: "AI Data-Centre Tenant",
@@ -43,7 +43,7 @@ const ForAllJourneys = () => {
       icon: <Users size={24} />,
       href: "/for-you/tenant",
       cta: "Tour the floor",
-      img: "/WBM/media/DataCentersAI.jpg"
+      img: "/WBM-Investor-Access-Requirements/media/DataCentersAI.jpg"
     },
     {
       title: "Government",
@@ -52,7 +52,7 @@ const ForAllJourneys = () => {
       icon: <Landmark size={24} />,
       href: "/for-you/government",
       cta: "See policy fit",
-      img: "/WBM/media/AerospaceDefense.jpg"
+      img: "/WBM-Investor-Access-Requirements/media/AerospaceDefense.jpg"
     },
     {
       title: "Academia",
@@ -61,7 +61,7 @@ const ForAllJourneys = () => {
       icon: <GraduationCap size={24} />,
       href: "/for-you/academia",
       cta: "Explore partnerships",
-      img: "/WBM/media/SustainablebyDesign.jpg"
+      img: "/WBM-Investor-Access-Requirements/media/SustainablebyDesign.jpg"
     },
   ];
 

@@ -6,6 +6,7 @@ import Navbar from "@/components/ui/Navbar";
 import AIAgentChat from "@/components/ui/AIAgentChat";
 import CustomCursor from "@/components/ui/CustomCursor";
 import Footer from "@/components/home/Footer";
+import IntroScreen from "@/components/ui/IntroScreen";
 
 const amaticSC = Amatic_SC({
   variable: "--font-amatic",
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
   title: "Waste BE Minerals | Trash to Treasure",
   description: "The only company on Earth extracting 11 critical minerals from batteries, magnets, AND PCBs—under one AI-native roof.",
   icons: {
-    icon: '/APPIcon.png',
+    icon: '/WBM-Investor-Access-Requirements/APPIcon.png',
   },
 };
 
@@ -33,6 +34,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={`${amaticSC.variable} ${dmSans.variable}`} suppressHydrationWarning data-scroll-behavior="smooth">
       <body className="antialiased bg-[var(--c-bg)] text-[var(--c-fg)] transition-colors duration-300 relative">
         <ThemeProvider>
+          <IntroScreen />
           <CustomCursor />
           <Navbar />
           {children}

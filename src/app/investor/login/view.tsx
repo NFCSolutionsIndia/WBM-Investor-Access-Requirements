@@ -22,7 +22,7 @@ const InvestorLogin = () => {
 
   useEffect(() => {
     if (isAuthenticated()) {
-      window.location.href = "/WBM/for-you/investor";
+      window.location.replace("/WBM-Investor-Access-Requirements/for-you/investor");
     }
   }, []);
 
@@ -53,7 +53,7 @@ const InvestorLogin = () => {
       if (verifyAndLogin(accessKey, email)) {
         setShowIntro(true);
         setTimeout(() => {
-          window.location.href = "/WBM/for-you/investor";
+          window.location.replace("/WBM-Investor-Access-Requirements/for-you/investor");
         }, 4000); // Sync with IntroScreen duration
       } else {
         setError("Invalid access key. Please use the temporary key provided.");
@@ -81,7 +81,7 @@ const InvestorLogin = () => {
   return (
     <>
     {showIntro && <IntroScreen />}
-    <div className="min-h-screen bg-[var(--c-bg)] text-[var(--c-fg)] transition-colors duration-500 flex flex-col justify-center items-center relative overflow-hidden pt-20">
+    <div className="min-h-screen bg-[var(--c-bg)] text-[var(--c-fg)] transition-colors duration-500 flex flex-col justify-start items-center relative overflow-hidden pt-[130px] md:pt-[150px]">
       {/* Background Visual */}
       <div className="absolute inset-0 z-0">
         <LineWaves 
@@ -94,7 +94,7 @@ const InvestorLogin = () => {
       </div>
       <div className="absolute inset-0 bg-gradient-to-b from-[var(--c-bg)]/80 via-[var(--c-bg)]/40 to-[var(--c-bg)] z-[1]"></div>
       
-      <div className="max-w-md w-full px-6 relative z-[150] my-auto">
+      <div className="max-w-md w-full px-6 relative z-[50] mt-4 md:mt-8 mb-12">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -168,20 +168,30 @@ const InvestorLogin = () => {
                     </motion.div>
                   )}
 
-                  <button 
-                    type="submit"
-                    disabled={isLoading}
-                    className="w-full py-4 bg-[var(--c-lime)] text-black font-bold text-xs rounded-lg uppercase tracking-widest hover:brightness-110 transition-all flex items-center justify-center gap-2"
-                  >
-                    {isLoading ? (
-                      <div className="w-4 h-4 border-2 border-black/30 border-t-black rounded-full animate-spin"></div>
-                    ) : (
-                      <>
-                        <span>Continue</span>
-                        <ArrowRight size={14} />
-                      </>
-                    )}
-                  </button>
+                  <div className="flex flex-col gap-4">
+                    <button 
+                      type="submit"
+                      disabled={isLoading}
+                      className="w-full py-4 bg-[var(--c-lime)] text-black font-bold text-xs rounded-lg uppercase tracking-widest hover:brightness-110 transition-all flex items-center justify-center gap-2"
+                    >
+                      {isLoading ? (
+                        <div className="w-4 h-4 border-2 border-black/30 border-t-black rounded-full animate-spin"></div>
+                      ) : (
+                        <>
+                          <span>Continue</span>
+                          <ArrowRight size={14} />
+                        </>
+                      )}
+                    </button>
+                    <div className="text-center mt-1">
+                      <a 
+                        href="/WBM-Investor-Access-Requirements/contact"
+                        className="text-[9px] font-bold text-[var(--c-lime)] uppercase tracking-widest hover:text-[var(--c-lime)]/80 transition-colors"
+                      >
+                        Request Access &rarr;
+                      </a>
+                    </div>
+                  </div>
                 </motion.form>
               ) : (
                 <motion.form 
@@ -268,13 +278,21 @@ const InvestorLogin = () => {
                       )}
                     </button>
                     
-                    <button 
-                      type="button"
-                      onClick={() => { setStep('credentials'); setError(""); }}
-                      className="text-[9px] font-bold text-[var(--c-fg2)] uppercase tracking-widest hover:text-white transition-colors text-center"
-                    >
-                      &larr; Back to login
-                    </button>
+                    <div className="flex justify-between items-center px-1">
+                      <button 
+                        type="button"
+                        onClick={() => { setStep('credentials'); setError(""); }}
+                        className="text-[9px] font-bold text-[var(--c-fg2)] uppercase tracking-widest hover:text-white transition-colors"
+                      >
+                        &larr; Back to login
+                      </button>
+                      <a 
+                        href="/WBM-Investor-Access-Requirements/contact"
+                        className="text-[9px] font-bold text-[var(--c-lime)] uppercase tracking-widest hover:text-[var(--c-lime)]/80 transition-colors"
+                      >
+                        Request Access &rarr;
+                      </a>
+                    </div>
                   </div>
                 </motion.form>
               )}
@@ -289,14 +307,7 @@ const InvestorLogin = () => {
           </div>
         </motion.div>
 
-        <motion.div 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5 }}
-          className="mt-8 text-center"
-        >
-          <a href="/WBM/contact" className="text-[10px] font-black text-[var(--c-lime)] uppercase tracking-[0.2em] hover:tracking-[0.3em] transition-all">Request Access ↗</a>
-        </motion.div>
+
       </div>
     </div>
     </>

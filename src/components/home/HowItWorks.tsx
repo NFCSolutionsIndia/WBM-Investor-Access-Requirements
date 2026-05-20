@@ -10,9 +10,9 @@ const steps = [
     num: "01",
     metric: "10,000+ tonnes/yr capacity",
     title: "Feedstock Intake",
-    desc: "We partner with corporations, municipalities, and data centres to collect e-waste, batteries, and rare earth magnets. Our logistics network ensures secure, certified pickup with chain-of-custody documentation.",
-    tags: ["Electronics", "Batteries", "Magnets", "Data Centres"],
-    img: "/WBM/media/Step1.png",
+    desc: "We partner with corporations, municipalities, and data centres to collect e-waste, batteries, and rare earth elements. Our logistics network provides secure, certified pickup services backed by full chain-of-custody documentation.",
+    tags: ["Electronics", "Batteries", "Rare Earth Elements", "Data Centres"],
+    img: "/WBM-Investor-Access-Requirements/media/Step1.png",
   },
   {
     num: "02",
@@ -20,7 +20,7 @@ const steps = [
     title: "Robot-Assisted Sorting",
     desc: "Our proprietary AI vision systems scan, classify, and sort every piece of waste in real-time. Robotic arms work alongside our technicians with 98.7% material identification accuracy.",
     tags: ["Computer Vision", "Robotics", "Real-time", "Human-AI"],
-    img: "/WBM/media/Step2.jpg",
+    img: "/WBM-Investor-Access-Requirements/media/Step2.jpg",
   },
   {
     num: "03",
@@ -28,7 +28,7 @@ const steps = [
     title: "Proprietary Extraction",
     desc: "Using hydrometallurgical and pyrometallurgical processes, we extract precious and critical minerals. Zero liquid discharge technology ensures we're environmentally compliant at every stage.",
     tags: ["Hydrometallurgy", "Pyrometallurgy", "Zero Discharge", "ISO Certified"],
-    img: "/WBM/media/Step3.jpg",
+    img: "/WBM-Investor-Access-Requirements/media/Step3.jpg",
   },
   {
     num: "04",
@@ -36,7 +36,7 @@ const steps = [
     title: "Mineral Formation",
     desc: "Extracted materials are refined to industry-grade purity. Lithium, cobalt, copper, gold, and 40+ other critical minerals are processed and certified for immediate industrial use.",
     tags: ["Lithium", "Cobalt", "Copper", "Gold", "Neodymium"],
-    img: "/WBM/media/Step4.png",
+    img: "/WBM-Investor-Access-Requirements/media/Step4.png",
   },
   {
     num: "05",
@@ -44,7 +44,7 @@ const steps = [
     title: "The Smart Marketplace",
     desc: "Certified minerals are distributed to EV manufacturers, semiconductor companies, defence contractors, and AI infrastructure providers globally through our smart marketplace.",
     tags: ["EV Manufacturers", "Chip Makers", "Defence", "AI Infrastructure"],
-    img: "/WBM/media/Step5.jpg",
+    img: "/WBM-Investor-Access-Requirements/media/Step5.jpg",
   },
 ];
 
@@ -65,7 +65,7 @@ const StepBlock = ({ step, index, setActiveStep }: { step: any, index: number, s
 
   return (
     <div ref={ref} className="min-h-[70vh] py-10 flex flex-col justify-center relative">
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, x: -30 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ margin: "-10%" }}
@@ -100,7 +100,7 @@ const StepBlock = ({ step, index, setActiveStep }: { step: any, index: number, s
 
         {/* Mobile image (only visible on small screens) */}
         <div className="block lg:hidden mt-12 w-full aspect-[4/3] sm:aspect-square relative rounded-[20px] overflow-hidden border border-[var(--c-border)] shadow-xl mx-auto">
-          <Image 
+          <Image
             src={step.img}
             alt={step.title}
             fill
@@ -118,7 +118,7 @@ export default function HowItWorks() {
 
   return (
     <section className="relative w-full bg-[var(--c-bg)] transition-colors duration-500" id="process">
-      
+
       {/* Intro Header */}
       <div className="max-w-7xl mx-auto px-6 py-10">
         <ScrollReveal className="text-center max-w-3xl mx-auto">
@@ -129,7 +129,7 @@ export default function HowItWorks() {
             </span>
           </div>
           <h2 className="font-sans font-black uppercase tracking-tighter leading-[0.9] section-title text-[var(--c-fg)] mb-8">
-            From Waste to <br/>
+            From Waste to <br />
             <span className="text-[var(--c-highlight)] lime-glow-text">World Engines.</span>
           </h2>
           <p className="font-sans text-[var(--c-fg2)] text-xl max-w-2xl mx-auto leading-relaxed">
@@ -140,11 +140,11 @@ export default function HowItWorks() {
 
       {/* Scroll Narrative Section */}
       <div className="w-full relative flex flex-col lg:flex-row pb-24">
-        
+
         {/* Left Side: Scrolling Content */}
         <div className="w-full lg:w-1/2 lg:pl-[max(1.5rem,calc((100vw-80rem)/2))] lg:pr-20 px-6 relative z-10">
           {steps.map((step, index) => (
-            <StepBlock 
+            <StepBlock
               key={step.num}
               step={step}
               index={index}
@@ -166,7 +166,7 @@ export default function HowItWorks() {
                   transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
                   className="absolute inset-0"
                 >
-                  <Image 
+                  <Image
                     src={steps[activeStep].img}
                     alt={steps[activeStep].title}
                     fill

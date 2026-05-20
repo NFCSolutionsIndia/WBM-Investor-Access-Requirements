@@ -13,7 +13,7 @@ const BLOCKS = [
   },
   {
     num: "02",
-    title: "Rare-Earth Magnets",
+    title: "Rare-Earth Elements",
     text: "Neodymium, dysprosium — extracted from end-of-life turbines & motors.",
   },
   {
@@ -123,8 +123,8 @@ export default function ImpactPurpose() {
             <motion.div style={{ scale: videoScale }} className="w-full">
               <video
                 ref={videoRef}
-                src="/WBM/media/WhatweDo.mp4"
-                poster="/WBM/media/ThumbnailImg.png"
+                src="/WBM-Investor-Access-Requirements/media/WhatweDo.mp4"
+                poster="/WBM-Investor-Access-Requirements/media/ThumbnailImg.png"
                 playsInline
                 className="w-full h-auto block opacity-80 group-hover:opacity-100 transition-opacity duration-700"
                 onClick={togglePlay}

@@ -14,6 +14,11 @@ const ForYouCustomer = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [showToast, setShowToast] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const handleSend = () => {
     setIsSuccess(true);
@@ -305,7 +310,7 @@ const ForYouCustomer = () => {
                 className="relative h-[600px] flex items-center justify-center w-full"
               >
                  <img 
-                   src={theme === 'dark' ? "/WBM/media/EV_Battery_Exploded_View_DarkTheme.png" : "/WBM/media/EV_Battery_Exploded_View_light1.png"} 
+                   src={theme === 'dark' ? "/WBM-Investor-Access-Requirements/media/EV_Battery_Exploded_View_DarkTheme.png" : "/WBM-Investor-Access-Requirements/media/EV_Battery_Exploded_View_light1.png"} 
                    alt="EV Battery Exploded View" 
                    className="w-full h-full object-contain" 
                  />
@@ -476,19 +481,21 @@ const ForYouCustomer = () => {
                     <div className="text-[10px] font-black text-[var(--c-lime)] uppercase tracking-widest mb-6">{stat.trend}</div>
                     
                     <div className="h-12 w-full opacity-60 group-hover:opacity-100 transition-opacity">
-                      <ResponsiveContainer width="100%" height="100%">
-                         <LineChart data={stat.data.map((v, idx) => ({ v, idx }))}>
-                            <Line 
-                              type="monotone" 
-                              dataKey="v" 
-                              stroke={stat.color} 
-                              strokeWidth={2} 
-                              dot={false} 
-                              isAnimationActive={true}
-                              animationDuration={1500}
-                            />
-                         </LineChart>
-                      </ResponsiveContainer>
+                      {mounted && (
+                        <ResponsiveContainer width="100%" height="100%">
+                           <LineChart data={stat.data.map((v, idx) => ({ v, idx }))}>
+                              <Line 
+                                type="monotone" 
+                                dataKey="v" 
+                                stroke={stat.color} 
+                                strokeWidth={2} 
+                                dot={false} 
+                                isAnimationActive={true}
+                                animationDuration={1500}
+                              />
+                           </LineChart>
+                        </ResponsiveContainer>
+                      )}
                     </div>
                   </TiltCard>
                 </motion.div>
@@ -508,49 +515,51 @@ const ForYouCustomer = () => {
            
            <div className="p-8 md:p-12 rounded-[32px] border border-[var(--c-border)] bg-[var(--c-bg)]">
               <div className="h-[300px] md:h-[400px] w-full mt-4 md:mt-0">
-                 <ResponsiveContainer width="100%" height="100%">
-                    <AreaChart data={chartData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
-                       <defs>
-                          <linearGradient id="colorPreciousCust" x1="0" y1="0" x2="0" y2="1">
-                             <stop offset="5%" stopColor="#f59e0b" stopOpacity={0.3}/>
-                             <stop offset="95%" stopColor="#f59e0b" stopOpacity={0}/>
-                          </linearGradient>
-                          <linearGradient id="colorCriticalCust" x1="0" y1="0" x2="0" y2="1">
-                             <stop offset="5%" stopColor="#06b6d4" stopOpacity={0.3}/>
-                             <stop offset="95%" stopColor="#06b6d4" stopOpacity={0}/>
-                          </linearGradient>
-                          <linearGradient id="colorRareCust" x1="0" y1="0" x2="0" y2="1">
-                             <stop offset="5%" stopColor="#839470" stopOpacity={0.3}/>
-                             <stop offset="95%" stopColor="#839470" stopOpacity={0}/>
-                          </linearGradient>
-                       </defs>
-                       <CartesianGrid strokeDasharray="3 3" stroke="var(--c-border)" vertical={false} opacity={0.5} />
-                       <XAxis 
-                         dataKey="name" 
-                         stroke="var(--c-fg2)" 
-                         fontSize={10} 
-                         tickLine={false} 
-                         axisLine={false}
-                         interval="preserveStartEnd"
-                         minTickGap={30}
-                       />
-                       <YAxis stroke="var(--c-fg2)" fontSize={10} tickLine={false} axisLine={false} />
-                       <Tooltip 
-                         contentStyle={{ 
-                           backgroundColor: 'rgba(10, 10, 10, 0.95)', 
-                           borderColor: 'var(--c-border)', 
-                           borderRadius: '12px',
-                           fontSize: '11px',
-                           boxShadow: '0 10px 30px rgba(0,0,0,0.5)'
-                         }}
-                         itemStyle={{ padding: '2px 0' }}
-                       />
-                       <Legend verticalAlign="bottom" align="center" iconType="circle" wrapperStyle={{ paddingTop: '30px', fontSize: '10px' }} />
-                       <Area type="monotone" dataKey="precious" name="Precious" stroke="#f59e0b" strokeWidth={3} fillOpacity={1} fill="url(#colorPreciousCust)" />
-                       <Area type="monotone" dataKey="critical" name="Critical" stroke="#06b6d4" strokeWidth={3} fillOpacity={1} fill="url(#colorCriticalCust)" />
-                       <Area type="monotone" dataKey="rareEarth" name="Rare-Earth" stroke="#839470" strokeWidth={3} fillOpacity={1} fill="url(#colorRareCust)" />
-                    </AreaChart>
-                 </ResponsiveContainer>
+                 {mounted && (
+                    <ResponsiveContainer width="100%" height="100%">
+                       <AreaChart data={chartData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
+                          <defs>
+                             <linearGradient id="colorPreciousCust" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="5%" stopColor="#f59e0b" stopOpacity={0.3}/>
+                                <stop offset="95%" stopColor="#f59e0b" stopOpacity={0}/>
+                             </linearGradient>
+                             <linearGradient id="colorCriticalCust" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="5%" stopColor="#06b6d4" stopOpacity={0.3}/>
+                                <stop offset="95%" stopColor="#06b6d4" stopOpacity={0}/>
+                             </linearGradient>
+                             <linearGradient id="colorRareCust" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="5%" stopColor="#839470" stopOpacity={0.3}/>
+                                <stop offset="95%" stopColor="#839470" stopOpacity={0}/>
+                             </linearGradient>
+                          </defs>
+                          <CartesianGrid strokeDasharray="3 3" stroke="var(--c-border)" vertical={false} opacity={0.5} />
+                          <XAxis 
+                            dataKey="name" 
+                            stroke="var(--c-fg2)" 
+                            fontSize={10} 
+                            tickLine={false} 
+                            axisLine={false}
+                            interval="preserveStartEnd"
+                            minTickGap={30}
+                          />
+                          <YAxis stroke="var(--c-fg2)" fontSize={10} tickLine={false} axisLine={false} />
+                          <Tooltip 
+                            contentStyle={{ 
+                              backgroundColor: 'rgba(10, 10, 10, 0.95)', 
+                              borderColor: 'var(--c-border)', 
+                              borderRadius: '12px',
+                              fontSize: '11px',
+                              boxShadow: '0 10px 30px rgba(0,0,0,0.5)'
+                            }}
+                            itemStyle={{ padding: '2px 0' }}
+                          />
+                          <Legend verticalAlign="bottom" align="center" iconType="circle" wrapperStyle={{ paddingTop: '30px', fontSize: '10px' }} />
+                          <Area type="monotone" dataKey="precious" name="Precious" stroke="#f59e0b" strokeWidth={3} fillOpacity={1} fill="url(#colorPreciousCust)" />
+                          <Area type="monotone" dataKey="critical" name="Critical" stroke="#06b6d4" strokeWidth={3} fillOpacity={1} fill="url(#colorCriticalCust)" />
+                          <Area type="monotone" dataKey="rareEarth" name="Rare-Earth" stroke="#839470" strokeWidth={3} fillOpacity={1} fill="url(#colorRareCust)" />
+                       </AreaChart>
+                    </ResponsiveContainer>
+                 )}
               </div>
            </div>
         </div>

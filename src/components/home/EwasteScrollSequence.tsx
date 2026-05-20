@@ -17,7 +17,7 @@ export default function EwasteScrollSequence() {
       for (let i = 1; i <= totalFrames; i++) {
         const img = new Image();
         const frameNum = i.toString().padStart(5, "0");
-        img.src = `/WBM/media/E-waste_flow_animation/${frameNum}.png`;
+        img.src = `/WBM-Investor-Access-Requirements/media/E-waste_flow_animation/${frameNum}.png`;
         
         img.onload = () => {
           loadedCount++;

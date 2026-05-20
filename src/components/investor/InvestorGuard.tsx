@@ -22,7 +22,7 @@ export const InvestorGuard = ({ children }: InvestorGuardProps) => {
     const check = () => {
       const session = getSession();
       if (!session) {
-        window.location.href = "/WBM/investor/login";
+        window.location.replace("/WBM-Investor-Access-Requirements/investor/login");
       } else {
         setIsAuthorized(true);
       }
@@ -85,17 +85,17 @@ export const InvestorGuard = ({ children }: InvestorGuardProps) => {
     <>
       <div 
         id="security-blur-overlay"
-        className="fixed inset-0 z-[9999] bg-black/80 backdrop-blur-3xl flex flex-col items-center justify-center text-center p-8 hidden select-none pointer-events-none"
+        className="fixed inset-0 z-[2147483647] bg-black flex flex-col items-center justify-center text-center p-8 hidden select-none pointer-events-none"
       >
-        <div className="w-20 h-20 rounded-full bg-[var(--c-lime)]/10 flex items-center justify-center text-[var(--c-lime)] mb-6 border border-[var(--c-lime)]/20 shadow-[0_0_50px_rgba(139,195,74,0.2)]">
+        <div className="w-20 h-20 rounded-full bg-[var(--c-lime)]/10 flex items-center justify-center text-[var(--c-lime)] mb-6 border border-[var(--c-lime)]/20 shadow-[0_0_50px_rgba(139,195,74,0.3)]">
           <ShieldCheck size={40} />
         </div>
-        <h2 className="text-2xl font-bold text-white uppercase tracking-tight mb-2">Content Protected</h2>
+        <h2 className="text-2xl font-bold text-white uppercase tracking-tight mb-2">Security Shield Active</h2>
         <p className="text-xs text-[var(--c-fg2)] uppercase tracking-widest opacity-60 max-w-xs">
-          Confidential data is restricted. Screen capturing is prohibited.
+          Confidential investor data is protected. <br /> Screen capturing has been restricted.
         </p>
       </div>
-      <div id="main-content-wrapper" className="transition-all duration-300">
+      <div id="main-content-wrapper">
         {children}
       </div>
       <SecurityToast />

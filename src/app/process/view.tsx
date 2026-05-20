@@ -33,7 +33,7 @@ const Process = () => {
     },
     {
       title: <>Advanced <span className="text-[var(--c-lime)]">Extraction</span></>,
-      desc: "Hydrometallurgical and mechanical processes extract precious and rare earth elements with high precision.",
+      desc: "Hydrometallurgical and mechanical processes extract precious and Rare Earth Elements with high precision.",
       icon: <FlaskConical size={32} className="text-white" />,
       color: "bg-[#752D0D]"
     },
@@ -53,7 +53,7 @@ const Process = () => {
       category: "Battery-grade", 
       use: "EV Batteries & Energy Storage", 
       purity: "98.5%", 
-      image: "/WBM/media/Lithium_Recovery.png",
+      image: "/WBM-Investor-Access-Requirements/media/Lithium_Recovery.png",
       color: "#c1ff00",
       desc: "Essential for high-density lithium-ion cathode chemistries."
     },
@@ -64,7 +64,7 @@ const Process = () => {
       category: "Refined", 
       use: "Electrical Components", 
       purity: "99.9%", 
-      image: "/WBM/media/CopperExtraction.jpg",
+      image: "/WBM-Investor-Access-Requirements/media/CopperExtraction.jpg",
       color: "#ff9800",
       desc: "High-conductivity metal for power distribution and interconnects."
     },
@@ -75,18 +75,18 @@ const Process = () => {
       category: "Precious", 
       use: "High-precision Electronics", 
       purity: "99.99%", 
-      image: "/WBM/media/PreciousMetal_Recovery.jpg",
+      image: "/WBM-Investor-Access-Requirements/media/PreciousMetal_Recovery.jpg",
       color: "#ffc107",
       desc: "Corrosion-resistant conductor for high-reliability circuit bonding."
     },
     { 
-      name: "Rare Earths", 
+      name: "Rare Earth Elements", 
       sym: "REE", 
       id: "57-71", 
       category: "Critical", 
       use: "Magnets & AI Hardware", 
       purity: "95%+", 
-      image: "/WBM/media/RareEarthElements.jpg",
+      image: "/WBM-Investor-Access-Requirements/media/RareEarthElements.jpg",
       color: "#4ECDC4",
       desc: "Critical elements for high-performance permanent magnets."
     }
@@ -175,9 +175,9 @@ const Process = () => {
               <h2 className="section-title font-bold text-[var(--c-fg)] leading-tight tracking-tight mb-8">Recovered <span className="text-[var(--c-lime)]">Materials</span></h2>
               <p className="text-xl text-gray-500 font-medium">We extract high-purity minerals that meet or exceed traditional mining standards.</p>
             </div>
-            <Button href="/contact" variant="ghost" className="flex items-center gap-2 group mb-2">
+            {/* <Button href="/contact" variant="ghost" className="flex items-center gap-2 group mb-2">
               Download Material Catalog
-            </Button>
+            </Button> */}
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
@@ -276,7 +276,7 @@ const Process = () => {
               </div>
               <div className="relative">
                 <div className="aspect-video rounded-[10px] overflow-hidden shadow-2xl border border-white/10">
-                  <img src="/WBM/media/Rectangle_34.png" alt="Facility Standard" className="w-full h-full object-cover" />
+                  <img src="/WBM-Investor-Access-Requirements/media/Rectangle_34.png" alt="Facility Standard" className="w-full h-full object-cover" />
                 </div>
                 <div className="absolute -top-4 -right-4 w-12 h-12 bg-[var(--c-lime)] rounded-full animate-ping opacity-20"></div>
               </div>

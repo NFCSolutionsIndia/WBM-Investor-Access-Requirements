@@ -147,7 +147,7 @@ export default function Footer() {
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-10 grid grid-cols-2 md:grid-cols-4 gap-10 border-b border-white/10">
         <ScrollReveal className="col-span-2 md:col-span-1">
           <Image 
-            src="/WBM/WBMLogoWhite.svg" 
+            src="/WBM-Investor-Access-Requirements/WBMLogoWhite.svg" 
             alt="Waste BE Minerals" 
             width={180} 
             height={60} 
@@ -209,9 +209,9 @@ export default function Footer() {
             Connect Now
             <span className="group-hover:translate-x-1 transition-transform">→</span>
           </a>
-          <div className="mt-8 space-y-3">
-            <div className="font-sans text-xs font-bold transition-colors cursor-pointer text-white/80 hover:text-white">contact@wastebeminerals.com</div>
-            <div className="font-sans text-[10px] leading-relaxed uppercase tracking-wider font-bold text-white/60">Parsippany, NJ 07054, USA</div>
+          <div className="mt-4 space-y-2">
+            <div className="font-sans text-sm font-bold transition-colors cursor-pointer text-white/80 hover:text-white">contact@wastebeminerals.com</div>
+            <div className="font-sans text-xs leading-relaxed uppercase tracking-wider font-bold text-white/60">Parsippany, NJ 07054, USA</div>
           </div>
         </ScrollReveal>
       </div>

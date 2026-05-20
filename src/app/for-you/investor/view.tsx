@@ -6,56 +6,14 @@ import Galaxy from '@/components/ui/backgrounds/Galaxy';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, LineChart, Line } from 'recharts';
 import Button from '@/components/ui/Button';
 import { Protected } from '@/components/investor/Protected';
-
-// Extended type for browser-specific fullscreen methods
-interface FullScreenVideoElement extends HTMLVideoElement {
-  webkitRequestFullscreen?: () => Promise<void>;
-  msRequestFullscreen?: () => Promise<void>;
-}
+import { CustomVideoPlayer } from '@/components/investor/CustomVideoPlayer';
 
 const ForYouInvestor = () => {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const videoRef1 = useRef<HTMLVideoElement>(null);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [isPlaying1, setIsPlaying1] = useState(false);
-  const [progress, setProgress] = useState(0);
-  const [progress1, setProgress1] = useState(0);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
   }, []);
-
-  const togglePlay = (ref: any, playing: boolean, setPlaying: any) => {
-    if (ref.current) {
-      if (playing) {
-        ref.current.pause();
-      } else {
-        ref.current.play();
-      }
-      setPlaying(!playing);
-    }
-  };
-
-  const skip = (ref: any, amount: number) => {
-    if (ref.current) {
-      ref.current.currentTime += amount;
-    }
-  };
-
-  const handleFullScreen = (e: React.MouseEvent, ref: any) => {
-    e.stopPropagation();
-    const video = ref.current as FullScreenVideoElement;
-    if (video) {
-      if (video.requestFullscreen) {
-        video.requestFullscreen();
-      } else if (video.webkitRequestFullscreen) {
-        video.webkitRequestFullscreen();
-      } else if (video.msRequestFullscreen) {
-        video.msRequestFullscreen();
-      }
-    }
-  };
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -148,7 +106,7 @@ const ForYouInvestor = () => {
                 }
               >
                 <a 
-                  href="/WBM/investor/viewer"
+                  href="/WBM-Investor-Access-Requirements/investor/viewer"
                   className="flex items-center justify-center gap-3 h-14 px-8 rounded-[10px] border border-white/10 bg-white/5 text-white font-sans font-black text-sm uppercase tracking-widest hover:bg-white/10 hover:border-white/20 transition-all backdrop-blur-md"
                   onContextMenu={(e) => e.preventDefault()}
                 >
@@ -300,90 +258,13 @@ const ForYouInvestor = () => {
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                className="relative rounded-[24px] md:rounded-[32px] overflow-hidden border border-[var(--c-border)] bg-[#0a0a0a] group shadow-2xl cursor-pointer"
               >
-                 <video 
-                   ref={videoRef}
-                   src="/WBM/media/90_Seconds_on_The_Moat.mp4" 
-                   playsInline 
-                   controlsList="nodownload"
-                   onContextMenu={(e) => e.preventDefault()}
-                   disablePictureInPicture
-                   onTimeUpdate={(e) => setProgress((e.currentTarget.currentTime / e.currentTarget.duration) * 100)}
-                   onPlay={() => setIsPlaying(true)}
-                   onPause={() => setIsPlaying(false)}
-                   className="w-full h-auto block group-hover:opacity-100 transition-opacity duration-700"
-                   onClick={() => togglePlay(videoRef, isPlaying, setIsPlaying)}
+                 <CustomVideoPlayer 
+                   src="/WBM-Investor-Access-Requirements/media/90_Seconds_on_The_Moat.mp4"
+                   badgeText="Moat Analysis"
+                   title="90 Seconds on the Moat"
+                   subtitle="Executive Summary"
                  />
-                 
-                 {/* Play/Pause/Skip Controls Overlay */}
-                 <AnimatePresence>
-                   {!isPlaying && (
-                     <motion.div 
-                       initial={{ opacity: 0 }}
-                       animate={{ opacity: 1 }}
-                       exit={{ opacity: 0 }}
-                       className="absolute inset-0 flex items-center justify-center z-30 bg-black/20 backdrop-blur-[2px]"
-                     >
-                        <div className="flex items-center gap-6 md:gap-10">
-                           <button
-                             onClick={(e) => { e.stopPropagation(); skip(videoRef, -10); }}
-                             className="text-white/80 hover:text-[var(--c-highlight)] transition-all p-2 hover:scale-110"
-                           >
-                             <Rewind size={40} className="fill-white/10" />
-                           </button>
-
-                           <div 
-                             className="w-20 h-20 md:w-28 md:h-28 bg-[var(--c-highlight)]/20 backdrop-blur-md rounded-full flex items-center justify-center shadow-[0_0_50px_rgba(131,148,112,0.3)] cursor-pointer hover:scale-110 transition-transform border border-white/20"
-                             onClick={(e) => { e.stopPropagation(); togglePlay(videoRef, isPlaying, setIsPlaying); }}
-                           >
-                              <Play size={56} className="text-white fill-white ml-1.5" />
-                           </div>
-
-                           <button
-                             onClick={(e) => { e.stopPropagation(); skip(videoRef, 10); }}
-                             className="text-white/80 hover:text-[var(--c-highlight)] transition-all p-2 hover:scale-110"
-                           >
-                             <FastForward size={40} className="fill-white/10" />
-                           </button>
-                        </div>
-                     </motion.div>
-                   )}
-                 </AnimatePresence>
-
-                 {/* Progress Bar */}
-                 <div className="absolute bottom-0 left-0 w-full h-1 bg-white/10 z-30">
-                   <motion.div 
-                     className="h-full bg-[var(--c-highlight)]" 
-                     initial={{ width: 0 }}
-                     animate={{ width: `${progress}%` }}
-                     transition={{ type: "spring", bounce: 0, duration: 0.1 }}
-                   />
-                 </div>
-
-                 {/* Overlay Accents - Only show when NOT playing */}
-                 {!isPlaying && (
-                   <>
-                     <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
-                     
-                     <div className="absolute top-6 left-6 flex items-center gap-2 px-3 py-1 bg-black/20 backdrop-blur-md rounded-full border border-white/10 z-20">
-                        <div className="w-1.5 h-1.5 rounded-full bg-[var(--c-highlight)] animate-pulse" />
-                        <span className="text-[10px] font-black text-white uppercase tracking-widest">Moat Analysis</span>
-                     </div>
-
-                     <button 
-                       onClick={(e) => { e.stopPropagation(); handleFullScreen(e, videoRef); }}
-                       className="absolute top-6 right-6 w-10 h-10 bg-black/20 backdrop-blur-md rounded-full border border-white/10 flex items-center justify-center text-white hover:bg-[var(--c-highlight)] hover:text-black transition-all z-20"
-                     >
-                        <Maximize size={18} />
-                     </button>
-                     
-                     <div className="absolute bottom-8 left-8 text-left z-20">
-                        <div className="text-[10px] font-black text-[var(--c-highlight)] uppercase tracking-widest mb-1">Executive Summary</div>
-                        <div className="text-2xl font-black text-white uppercase tracking-tighter">90 Seconds on the Moat</div>
-                     </div>
-                   </>
-                 )}
               </motion.div>
            </div>
         </div>
@@ -462,88 +343,12 @@ const ForYouInvestor = () => {
 
       {/* Full Width Investor Video */}
       <section className="w-full bg-[#0a0a0a] overflow-hidden py-0">
-          <div className="w-full relative overflow-hidden bg-[#0a0a0a] group">
-             <video 
-               ref={videoRef1}
-               src="/WBM/media/Investor1.mp4" 
-               playsInline 
-               controlsList="nodownload"
-               onContextMenu={(e) => e.preventDefault()}
-               disablePictureInPicture
-               onTimeUpdate={(e) => setProgress1((e.currentTarget.currentTime / e.currentTarget.duration) * 100)}
-               onPlay={() => setIsPlaying1(true)}
-               onPause={() => setIsPlaying1(false)}
-               className="w-full h-auto block group-hover:opacity-100 transition-opacity duration-700 cursor-pointer"
-               onClick={() => togglePlay(videoRef1, isPlaying1, setIsPlaying1)}
-             />
-             
-             {/* Play/Pause/Skip Controls Overlay */}
-             <AnimatePresence>
-               {!isPlaying1 && (
-                 <motion.div 
-                   initial={{ opacity: 0 }}
-                   animate={{ opacity: 1 }}
-                   exit={{ opacity: 0 }}
-                   className="absolute inset-0 flex items-center justify-center z-30 bg-black/20 backdrop-blur-[2px]"
-                 >
-                    <div className="flex items-center gap-6 md:gap-10">
-                       <button
-                         onClick={(e) => { e.stopPropagation(); skip(videoRef1, -10); }}
-                         className="text-white/80 hover:text-[var(--c-highlight)] transition-all p-2 hover:scale-110"
-                       >
-                         <Rewind size={32} className="fill-white/10" />
-                       </button>
-
-                       <div 
-                         className="w-20 h-20 md:w-28 md:h-28 bg-[var(--c-highlight)]/20 backdrop-blur-md rounded-full flex items-center justify-center shadow-[0_0_50px_rgba(131,148,112,0.3)] cursor-pointer hover:scale-110 transition-transform border border-white/20"
-                         onClick={(e) => { e.stopPropagation(); togglePlay(videoRef1, isPlaying1, setIsPlaying1); }}
-                       >
-                          <Play size={40} className="text-white fill-white ml-1.5" />
-                       </div>
-
-                       <button
-                         onClick={(e) => { e.stopPropagation(); skip(videoRef1, 10); }}
-                         className="text-white/80 hover:text-[var(--c-highlight)] transition-all p-2 hover:scale-110"
-                       >
-                         <FastForward size={32} className="fill-white/10" />
-                       </button>
-                    </div>
-                 </motion.div>
-               )}
-             </AnimatePresence>
-
-             {/* Progress Bar */}
-             <div className="absolute bottom-0 left-0 w-full h-1 bg-white/10 z-30">
-               <motion.div 
-                 className="h-full bg-[var(--c-highlight)]" 
-                 initial={{ width: 0 }}
-                 animate={{ width: `${progress1}%` }}
-                 transition={{ type: "spring", bounce: 0, duration: 0.1 }}
-               />
-             </div>
-
-             {/* Text Overlay - Only when NOT playing */}
-             {!isPlaying1 && (
-                <>
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-black/20 pointer-events-none" />
-                  
-                  <button 
-                    onClick={(e) => { e.stopPropagation(); handleFullScreen(e, videoRef1); }}
-                    className="absolute top-6 right-6 w-10 h-10 bg-black/40 backdrop-blur-md rounded-full border border-white/10 flex items-center justify-center text-white hover:bg-[var(--c-highlight)] hover:text-black transition-all z-20"
-                  >
-                     <Maximize size={18} />
-                  </button>
-
-                  <div className="absolute bottom-8 left-8 md:bottom-12 md:left-12 z-10">
-                    <div className="flex items-center gap-2 mb-4">
-                       <div className="w-2 h-2 rounded-full bg-[var(--c-highlight)] animate-pulse" />
-                       <span className="text-[10px] font-black text-white uppercase tracking-[0.3em]">Operational Deep Dive</span>
-                    </div>
-                    <h4 className="text-2xl md:text-4xl font-black text-white uppercase tracking-tighter">Infrastructure Intelligence</h4>
-                 </div>
-               </>
-             )}
-          </div>
+         <CustomVideoPlayer 
+           src="/WBM-Investor-Access-Requirements/media/Investor1.mp4"
+           badgeText="Operational Deep Dive"
+           title="Infrastructure Intelligence"
+           className="rounded-none border-x-0 border-y border-[var(--c-border)]"
+         />
       </section>
 
       {/* Proof Points Stats */}

@@ -63,7 +63,7 @@ export default function IntroScreen() {
             >
               <div className="relative overflow-hidden group">
                 <Image
-                  src="/WBM/WBMLogoWhite.svg"
+                  src="/WBM-Investor-Access-Requirements/WBMLogoWhite.svg"
                   alt="WBM Logo"
                   width={400}
                   height={160}

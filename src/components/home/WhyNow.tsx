@@ -36,7 +36,7 @@ export default function WhyNow() {
         <div className="w-full lg:w-1/2 relative h-[500px]">
           <ScrollReveal direction="right" className="w-full h-full relative rounded-[20px] overflow-hidden border border-[var(--c-border)] shadow-xl">
             <Image
-              src="/WBM/media/RareEarthElements.jpg"
+              src="/WBM-Investor-Access-Requirements/media/RareEarthElements.jpg"
               alt="Geopolitical mapping"
               fill
               className="object-cover opacity-80 transition-all duration-700"
