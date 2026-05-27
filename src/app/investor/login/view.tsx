@@ -80,7 +80,7 @@ const InvestorLogin = () => {
 
   return (
     <>
-    {showIntro && <IntroScreen />}
+    {showIntro && <IntroScreen forcePlay={true} />}
     <div className="min-h-screen bg-[var(--c-bg)] text-[var(--c-fg)] transition-colors duration-500 flex flex-col justify-start items-center relative overflow-hidden pt-[130px] md:pt-[150px]">
       {/* Background Visual */}
       <div className="absolute inset-0 z-0">

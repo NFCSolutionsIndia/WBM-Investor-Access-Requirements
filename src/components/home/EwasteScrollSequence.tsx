@@ -39,6 +39,8 @@ export default function EwasteScrollSequence() {
 
   const frameIndex = useTransform(scrollYProgress, [0, 1], [0, totalFrames - 1]);
 
+  const rectRef = useRef({ width: 0, height: 0 });
+
   const drawFrame = (index: number) => {
     if (!canvasRef.current || !imagesRef.current[index]) return;
     
@@ -50,19 +52,24 @@ export default function EwasteScrollSequence() {
     if (!img.complete) return;
 
     const dpr = window.devicePixelRatio || 1;
-    const rect = canvas.getBoundingClientRect();
+    let { width, height } = rectRef.current;
     
-    if (canvas.width !== rect.width * dpr || canvas.height !== rect.height * dpr) {
-      canvas.width = rect.width * dpr;
-      canvas.height = rect.height * dpr;
+    if (width === 0 || height === 0) {
+      const rect = canvas.getBoundingClientRect();
+      width = rect.width;
+      height = rect.height;
+      rectRef.current = { width, height };
+      
+      canvas.width = width * dpr;
+      canvas.height = height * dpr;
     }
     
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    ctx.clearRect(0, 0, rect.width, rect.height);
+    ctx.clearRect(0, 0, width, height);
     
-    const scale = Math.max(rect.width / img.width, rect.height / img.height);
-    const x = (rect.width / 2) - (img.width / 2) * scale;
-    const y = (rect.height / 2) - (img.height / 2) * scale;
+    const scale = Math.max(width / img.width, height / img.height);
+    const x = (width / 2) - (img.width / 2) * scale;
+    const y = (height / 2) - (img.height / 2) * scale;
     
     ctx.drawImage(img, x, y, img.width * scale, img.height * scale);
   };
@@ -75,11 +82,21 @@ export default function EwasteScrollSequence() {
 
   useEffect(() => {
     const handleResize = () => {
+      if (!canvasRef.current) return;
+      const rect = canvasRef.current.getBoundingClientRect();
+      const dpr = window.devicePixelRatio || 1;
+      
+      rectRef.current = { width: rect.width, height: rect.height };
+      canvasRef.current.width = rect.width * dpr;
+      canvasRef.current.height = rect.height * dpr;
+      
       drawFrame(Math.floor(frameIndex.get()));
     };
+    
+    handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  }, [frameIndex]);
 
   return (
     <div ref={containerRef} className="relative h-[400vh] w-full bg-white">

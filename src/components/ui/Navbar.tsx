@@ -19,6 +19,8 @@ export default function Navbar() {
   const pathname = usePathname();
   const { theme, toggle } = useTheme();
   
+  const normalizePath = (p: string) => p.replace(/\/$/, '') || '/';
+  
   React.useEffect(() => {
     setIsAuth(isAuthenticated());
   }, []);
@@ -167,9 +169,9 @@ export default function Navbar() {
         {/* Links */}
         <div className="hidden min-[970px]:flex items-center justify-center gap-1.5 bg-[var(--c-fg)]/5 px-2 py-1.5 rounded-full border border-[var(--c-border)]">
           {mainLinks.map((link) => {
-            const isActive = pathname === link.href;
+            const isActive = normalizePath(pathname) === normalizePath(link.href);
             return (
-              <Link key={link.name} href={link.href} className="relative group px-3 min-[1150px]:px-4 py-1.5 rounded-full overflow-hidden shrink-0">
+              <Link key={link.name} href={link.href} className="relative group px-3 min-[1150px]:px-4 h-8 rounded-full overflow-hidden shrink-0 flex items-center justify-center">
                 <span className={`relative z-10 text-[12px] font-bold tracking-widest uppercase transition-colors duration-300 ${isActive ? 'text-[var(--c-bg)]' : 'text-[var(--c-fg)]/70 group-hover:text-[var(--c-bg)]'}`}>
                   {link.name}
                 </span>
@@ -178,41 +180,48 @@ export default function Navbar() {
             );
           })}
           
-          {menuSections.map((section) => (
-            <div key={section.title} className="relative group px-3 min-[1150px]:px-4 py-1.5 rounded-full shrink-0 cursor-pointer">
-              <span className="relative z-10 text-[12px] font-bold tracking-widest uppercase transition-colors duration-300 text-[var(--c-fg)]/70 flex items-center gap-1 group-hover:text-[var(--c-fg)]">
-                {section.title} <ChevronDown size={14} />
-              </span>
-              {/* Dropdown Menu */}
-              <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-300 w-56">
-                <div className="bg-[var(--c-bg)] border border-[var(--c-border)] rounded-2xl shadow-xl overflow-hidden py-3 flex flex-col">
-                  {section.links.map((link) => {
-                    const isActive = pathname === link.href;
-                    return (
-                      <React.Fragment key={link.name}>
-                        <Link href={link.href} className={`px-5 py-2.5 text-[11px] font-bold tracking-widest uppercase transition-colors ${isActive ? 'text-[var(--c-lime)] bg-[var(--c-fg)]/5' : 'text-[var(--c-fg)]/70 hover:text-[var(--c-fg)] hover:bg-[var(--c-fg)]/5'}`}>
-                          {link.name}
-                        </Link>
-                        {link.subLinks && (
-                          <div className="flex flex-col mb-2">
-                            {link.subLinks.map((sub) => (
-                              <Link 
-                                key={sub.name} 
-                                href={sub.href} 
-                                className="px-8 py-1.5 text-[9px] font-black tracking-[0.2em] uppercase text-[var(--c-fg)]/40 hover:text-[var(--c-lime)] transition-colors"
-                              >
-                                {sub.name}
-                              </Link>
-                            ))}
-                          </div>
-                        )}
-                      </React.Fragment>
-                    );
-                  })}
+          {menuSections.map((section) => {
+            const isSectionActive = section.links.some(link => normalizePath(pathname) === normalizePath(link.href));
+            return (
+              <div key={section.title} className="relative group shrink-0 cursor-pointer">
+                {/* Header capsule wrapper with sliding background overlay */}
+                <div className="relative px-3 min-[1150px]:px-4 h-8 rounded-full overflow-hidden flex items-center justify-center">
+                  <span className={`relative z-10 text-[12px] font-bold tracking-widest uppercase transition-colors duration-300 flex items-center gap-1 ${isSectionActive ? 'text-[var(--c-bg)]' : 'text-[var(--c-fg)]/70 group-hover:text-[var(--c-bg)]'}`}>
+                    {section.title} <ChevronDown size={14} />
+                  </span>
+                  <div className={`absolute inset-0 bg-[var(--c-fg)] transition-transform duration-300 ease-in-out z-0 ${isSectionActive ? 'translate-y-0' : 'translate-y-[100%] group-hover:translate-y-0'}`} />
+                </div>
+                {/* Dropdown Menu */}
+                <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-300 w-56">
+                  <div className="bg-[var(--c-bg)] border border-[var(--c-border)] rounded-2xl shadow-xl overflow-hidden py-3 flex flex-col">
+                    {section.links.map((link) => {
+                      const isActive = normalizePath(pathname) === normalizePath(link.href);
+                      return (
+                        <React.Fragment key={link.name}>
+                          <Link href={link.href} className={`px-5 py-2.5 text-[11px] font-bold tracking-widest uppercase transition-colors ${isActive ? 'text-[var(--c-lime)] bg-[var(--c-fg)]/5' : 'text-[var(--c-fg)]/70 hover:text-[var(--c-fg)] hover:bg-[var(--c-fg)]/5'}`}>
+                            {link.name}
+                          </Link>
+                          {link.subLinks && (
+                            <div className="flex flex-col mb-2">
+                              {link.subLinks.map((sub) => (
+                                <Link 
+                                  key={sub.name} 
+                                  href={sub.href} 
+                                  className="px-8 py-1.5 text-[9px] font-black tracking-[0.2em] uppercase text-[var(--c-fg)]/40 hover:text-[var(--c-lime)] transition-colors"
+                                >
+                                  {sub.name}
+                                </Link>
+                              ))}
+                            </div>
+                          )}
+                        </React.Fragment>
+                      );
+                    })}
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
  
         {/* Right Section (Theme Toggle + CTA) - Only Desktop */}
@@ -278,56 +287,62 @@ export default function Navbar() {
           {/* Scrollable Content */}
           <div className="flex-1 overflow-y-auto px-8 py-10 space-y-12 pb-60">
             {/* Main Sections */}
-            <div className="flex flex-col gap-10">
+             <div className="flex flex-col gap-10">
               {/* Hero Link */}
               <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.1 }}>
                 <Link 
                   href="/" 
-                  className={`text-3xl font-black transition-colors uppercase tracking-tight ${pathname === '/' ? 'text-[var(--c-lime)]' : 'text-white'}`}
+                  className={`text-3xl font-black transition-colors uppercase tracking-tight ${normalizePath(pathname) === '/' ? 'text-[var(--c-lime)]' : 'text-white'}`}
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   Home
                 </Link>
               </motion.div>
 
-              {menuSections.map((section, idx) => (
-                <motion.div 
-                  key={section.title} 
-                  initial={{ y: 20, opacity: 0 }} 
-                  animate={{ y: 0, opacity: 1 }} 
-                  transition={{ delay: 0.2 + (idx * 0.1) }}
-                  className="flex flex-col gap-4"
-                >
-                  <span className="text-[var(--c-lime)] text-[10px] font-bold uppercase tracking-[0.3em] opacity-50">{section.title}</span>
-                  <div className="flex flex-col gap-4 border-l border-white/10 pl-6">
-                    {section.links.map((link) => (
-                      <div key={link.name} className="flex flex-col gap-3">
-                        <Link 
-                          href={link.href} 
-                          className={`text-xl font-bold transition-colors uppercase tracking-tight ${pathname === link.href ? 'text-[var(--c-lime)]' : 'text-white/70 hover:text-white'}`}
-                          onClick={() => setMobileMenuOpen(false)}
-                        >
-                          {link.name}
-                        </Link>
-                        {link.subLinks && (
-                          <div className="flex flex-col gap-3 pl-4 border-l border-white/5 mb-2">
-                            {link.subLinks.map((sub) => (
-                              <Link 
-                                key={sub.name} 
-                                href={sub.href} 
-                                className="text-sm font-bold text-white/40 uppercase tracking-widest hover:text-[var(--c-lime)] transition-colors"
-                                onClick={() => setMobileMenuOpen(false)}
-                              >
-                                {sub.name}
-                              </Link>
-                            ))}
+              {menuSections.map((section, idx) => {
+                const isSectionActive = section.links.some(link => normalizePath(pathname) === normalizePath(link.href));
+                return (
+                  <motion.div 
+                    key={section.title} 
+                    initial={{ y: 20, opacity: 0 }} 
+                    animate={{ y: 0, opacity: 1 }} 
+                    transition={{ delay: 0.2 + (idx * 0.1) }}
+                    className="flex flex-col gap-4"
+                  >
+                    <span className={`text-[var(--c-lime)] text-[10px] font-bold uppercase tracking-[0.3em] transition-opacity duration-300 ${isSectionActive ? 'opacity-100 font-extrabold' : 'opacity-50'}`}>{section.title}</span>
+                    <div className="flex flex-col gap-4 border-l border-white/10 pl-6">
+                      {section.links.map((link) => {
+                        const isActive = normalizePath(pathname) === normalizePath(link.href);
+                        return (
+                          <div key={link.name} className="flex flex-col gap-3">
+                            <Link 
+                              href={link.href} 
+                              className={`text-xl font-bold transition-colors uppercase tracking-tight ${isActive ? 'text-[var(--c-lime)]' : 'text-white/70 hover:text-white'}`}
+                              onClick={() => setMobileMenuOpen(false)}
+                            >
+                              {link.name}
+                            </Link>
+                            {link.subLinks && (
+                              <div className="flex flex-col gap-3 pl-4 border-l border-white/5 mb-2">
+                                {link.subLinks.map((sub) => (
+                                  <Link 
+                                    key={sub.name} 
+                                    href={sub.href} 
+                                    className="text-sm font-bold text-white/40 uppercase tracking-widest hover:text-[var(--c-lime)] transition-colors"
+                                    onClick={() => setMobileMenuOpen(false)}
+                                  >
+                                    {sub.name}
+                                  </Link>
+                                ))}
+                              </div>
+                            )}
                           </div>
-                        )}
-                      </div>
-                    ))}
-                  </div>
-                </motion.div>
-              ))}
+                        );
+                      })}
+                    </div>
+                  </motion.div>
+                );
+              })}
             </div>
           </div>
           

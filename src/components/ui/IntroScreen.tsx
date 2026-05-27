@@ -4,12 +4,33 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 
-export default function IntroScreen() {
+interface IntroScreenProps {
+  forcePlay?: boolean;
+}
+
+export default function IntroScreen({ forcePlay = false }: IntroScreenProps) {
   const [isVisible, setIsVisible] = useState(false);
   const [shouldRender, setShouldRender] = useState(false);
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
+    if (!forcePlay && typeof window !== "undefined") {
+      const isSessionActive = sessionStorage.getItem("wbm_session_active") === "true";
+      const navigationEntries = window.performance?.getEntriesByType("navigation");
+      const isReload = navigationEntries && navigationEntries.length > 0 && 
+        (navigationEntries[0] as PerformanceNavigationTiming).type === "reload";
+
+      if (isSessionActive && !isReload) {
+        setShouldRender(false);
+        setIsVisible(false);
+        return;
+      }
+    }
+
+    if (typeof window !== "undefined") {
+      sessionStorage.setItem("wbm_session_active", "true");
+    }
+
     setShouldRender(true);
     setIsVisible(true);
     
@@ -33,7 +54,7 @@ export default function IntroScreen() {
       clearTimeout(timer);
       clearInterval(interval);
     };
-  }, []);
+  }, [forcePlay]);
 
   if (!shouldRender) return null;
 

@@ -10,15 +10,21 @@ const FootprintGlobe = dynamic(() => import("./FootprintGlobe"), {
 });
 
 const LOCS = [
+  { id: "usa",    city: "Houston",       country: "United States", status: "operational", x: 20, y: 35, color: "#839470", capacity: "35,000 t/yr intake",   footprint: "120,000 sq ft", desc: "North American HQ and primary processing hub for US domestic e-waste networks." },
+  { id: "austin",  city: "Austin",        country: "United States", status: "operational", x: 20, y: 36, color: "#839470", capacity: "25,000 t/yr intake",   footprint: "95,000 sq ft",  desc: "Advanced high-recovery facility serving the Texas tech corridor and gigafactory ecosystems." },
+  { id: "michigan",city: "Michigan",      country: "United States", status: "operational", x: 23, y: 30, color: "#839470", capacity: "30,000 t/yr intake",   footprint: "110,000 sq ft", desc: "Key automotive-aligned facility processing electric vehicle battery packs and manufacturing scrap." },
+  { id: "nevada",  city: "Nevada",        country: "United States", status: "operational", x: 17, y: 32, color: "#839470", capacity: "35,000 t/yr intake",   footprint: "125,000 sq ft", desc: "Specialized closed-loop lithium extraction and cathode feed recovery center supporting Nevadan lithium loops." },
+  { id: "mexico",  city: "Mexico City",   country: "Mexico",        status: "operational", x: 19, y: 39, color: "#839470", capacity: "20,000 t/yr intake",   footprint: "80,000 sq ft",  desc: "Advanced recovery plant serving manufacturing and electronic recycling partnerships across Central and North America." },
+  { id: "uae",    city: "Ras al-Khaimah",country: "UAE",           status: "operational", x: 65, y: 40, color: "#839470", capacity: "15,000 t/yr intake",   footprint: "75,000 sq ft",  desc: "Strategic Middle East hub processing e-waste from GCC member states." },
   { id: "hyderabad",city: "Hyderabad",     country: "India",         status: "operational", x: 73, y: 46, color: "#839470", capacity: "30,000 t/yr intake",   footprint: "100,000 sq ft", desc: "India's flagship AI-powered e-waste facility serving major tech hubs across South Asia." },
   { id: "odisha", city: "Bhubaneswar",   country: "Odisha, India", status: "planned",     x: 75, y: 48, color: "#839470", capacity: "25,000 t/yr (planned)",footprint: "85,000 sq ft",  desc: "Upcoming advanced recovery center specialized in high-yield mineral extraction from industrial feedstock." },
-  { id: "uae",    city: "Ras al-Khaimah",country: "UAE",           status: "operational", x: 65, y: 40, color: "#839470", capacity: "15,000 t/yr intake",   footprint: "75,000 sq ft",  desc: "Strategic Middle East hub processing e-waste from GCC member states." },
-  { id: "sa",     city: "Johannesburg",  country: "South Africa",  status: "planned",     x: 55, y: 75, color: "#839470", capacity: "20,000 t/yr (planned)",footprint: "90,000 sq ft",  desc: "Planned greenfield facility to serve Sub-Saharan Africa's growing e-waste volumes." },
-  { id: "usa",    city: "Houston",       country: "United States", status: "operational", x: 20, y: 35, color: "#839470", capacity: "35,000 t/yr intake",   footprint: "120,000 sq ft", desc: "North American HQ and primary processing hub for US domestic e-waste networks." },
+  { id: "sa",     city: "Johannesburg",  country: "South Africa",  status: "planned",     x: 55, y: 75, color: "#839470", capacity: "20,000 t/yr (planned)",footprint: "90,000 sq ft",  desc: "Planned greenfield facility to serve Sub-Saharan Africa's growing e-waste volumes." }
 ];
 
 export default function GlobalFootprint({ isDark = true }: { isDark?: boolean }) {
-  const [hoveredId, setHoveredId] = useState<string | null>(null);
+  const [hoverState, setHoverState] = useState<{ id: string; source: 'card' | 'globe' } | null>(null);
+  const activeHoverId = hoverState?.id || null;
+  const activeHoverSource = hoverState?.source || null;
 
   const sectionBg = "#050505";
   const cardBg    = "rgba(8,12,16,0.85)";
@@ -47,7 +53,7 @@ export default function GlobalFootprint({ isDark = true }: { isDark?: boolean })
             <span className="text-[#839470]">A BYPASS TO FRAGILE SUPPLY CHAINS.</span>
           </h2>
           <p className="font-sans text-xs md:text-base max-w-2xl mx-auto text-white/60 px-4">
-            Four countries. Nine plants. Zero exposure to the geographies that hold the West hostage. By design, not by default.
+            Five countries. Thirteen plants. Zero exposure to the geographies that hold the West hostage. By design, not by default.
           </p>
         </motion.div>
       </div>
@@ -56,13 +62,16 @@ export default function GlobalFootprint({ isDark = true }: { isDark?: boolean })
       <div className="relative z-0 flex-1 min-h-[350px] md:min-h-[500px] flex items-center justify-center mt-6 md:mt-16 overflow-hidden">
         <div className="w-full h-full max-w-5xl px-4">
           <FootprintGlobe 
-            hoveredId={hoveredId} 
+            hoveredId={activeHoverId} 
+            hoverSource={activeHoverSource}
+            onHoverChange={setHoverState}
+            locations={LOCS}
           />
         </div>
       </div>
 
       {/* ── LEGEND CARDS ── */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 pb-12 md:pb-24 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 md:gap-4 w-full">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 pb-12 md:pb-24 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 md:gap-4 w-full">
         {LOCS.map((loc, i) => (
           <div key={loc.id} className="relative">
             <motion.div
@@ -70,10 +79,10 @@ export default function GlobalFootprint({ isDark = true }: { isDark?: boolean })
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.08 }}
-              onMouseEnter={() => setHoveredId(loc.id)}
-              onMouseLeave={() => setHoveredId(null)}
-              onClick={() => setHoveredId(hoveredId === loc.id ? null : loc.id)}
-              className={`rounded-[10px] p-4 md:p-5 border backdrop-blur-xl transition-all duration-300 cursor-pointer shadow-xl ${hoveredId === loc.id ? 'scale-[1.02] md:scale-105 border-white/30' : 'border-white/10 hover:border-white/20'}`}
+              onMouseEnter={() => setHoverState({ id: loc.id, source: 'card' })}
+              onMouseLeave={() => setHoverState(null)}
+              onClick={() => setHoverState(hoverState?.id === loc.id && hoverState?.source === 'card' ? null : { id: loc.id, source: 'card' })}
+              className={`rounded-[10px] p-4 md:p-5 border backdrop-blur-xl transition-all duration-300 cursor-pointer shadow-xl ${hoverState?.id === loc.id && hoverState?.source === 'card' ? 'scale-[1.02] md:scale-105 border-white/30' : 'border-white/10 hover:border-white/20'}`}
               style={{ background: cardBg }}
             >
               <div className="flex items-center gap-2 mb-1.5 md:mb-2">
@@ -86,7 +95,7 @@ export default function GlobalFootprint({ isDark = true }: { isDark?: boolean })
 
             {/* ── REFINED POPUP ── */}
             <AnimatePresence>
-              {hoveredId === loc.id && (
+              {hoverState?.id === loc.id && hoverState?.source === 'card' && (
                 <motion.div
                   initial={{ opacity: 0, y: -10, scale: 0.95 }}
                   animate={{ opacity: 1, y: 0, scale: 1 }}

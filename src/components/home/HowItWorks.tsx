@@ -27,7 +27,7 @@ const steps = [
     metric: "Zero liquid discharge",
     title: "Proprietary Extraction",
     desc: "Using hydrometallurgical and pyrometallurgical processes, we extract precious and critical minerals. Zero liquid discharge technology ensures we're environmentally compliant at every stage.",
-    tags: ["Hydrometallurgy", "Pyrometallurgy", "Zero Discharge", "ISO Certified"],
+    tags: ["Hydrometallurgy", "Zero Discharge", "ISO Certified"],
     img: "/WBM-Investor-Access-Requirements/media/Step3.jpg",
   },
   {

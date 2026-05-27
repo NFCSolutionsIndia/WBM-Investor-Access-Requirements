@@ -212,10 +212,15 @@ export default function LiquidCoolingAnimation() {
            </div>
 
            {/* Step 3: Return */}
-           <div className="absolute bottom-[2%] sm:bottom-[10%] left-1/2 -translate-x-1/2 text-center">
-              <div className="bg-[#111] backdrop-blur-xl border border-white/10 p-4 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.3)]">
-                 <div className="text-[12px] font-black text-white uppercase tracking-widest mb-1">Closed-Loop Recovery</div>
-                 <div className="text-[9px] text-[var(--c-lime)] font-black uppercase tracking-widest">Cooled liquid returns for re-use</div>
+           <div className="absolute bottom-[-5%] sm:bottom-[2%] left-1/2 -translate-x-1/2 text-center flex flex-col items-center gap-2">
+              <div className="bg-[#111] backdrop-blur-xl border border-white/10 p-3 sm:p-4 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.3)]">
+                 <div className="text-[10px] sm:text-[12px] font-black text-white uppercase tracking-widest mb-1">Closed-Loop Recovery</div>
+                 <div className="text-[8px] sm:text-[9px] text-[var(--c-lime)] font-black uppercase tracking-widest">Cooled liquid returns for re-use</div>
+              </div>
+              
+              <div className="bg-[var(--c-bg)]/90 backdrop-blur-sm px-4 py-2 rounded-full border border-[var(--c-border)] shadow-sm">
+                 <div className="text-[9px] font-black uppercase tracking-widest text-[#323d24]">Material Recovery Route</div>
+                 <div className="text-[9px] font-bold text-gray-950 uppercase tracking-widest mt-0.5">Documented under MOU</div>
               </div>
            </div>
         </div>

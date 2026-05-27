@@ -18,6 +18,34 @@ const Contact = () => {
       email: "contact@wastebeminerals.com"
     },
     {
+      city: "Austin",
+      type: "Advanced Recovery Center",
+      address: "1101 Giga Way, Austin, TX 78725, USA",
+      phone: "+1 (800) WASTE-BE",
+      email: "contact@wastebeminerals.com"
+    },
+    {
+      city: "Michigan",
+      type: "Automotive Recovery Hub",
+      address: "400 Renaissance Center, Detroit, MI 48243, USA",
+      phone: "+1 (800) WASTE-BE",
+      email: "contact@wastebeminerals.com"
+    },
+    {
+      city: "Nevada",
+      type: "Lithium Loop Facility",
+      address: "1 Electric Avenue, Sparks, NV 89434, USA",
+      phone: "+1 (800) WASTE-BE",
+      email: "contact@wastebeminerals.com"
+    },
+    {
+      city: "Mexico City",
+      type: "Advanced Recovery Hub",
+      address: "Paseo de la Reforma 222, Juárez, Cuauhtémoc, 06600 Ciudad de México, CDMX, Mexico",
+      phone: "+52 55 5555 0199",
+      email: "contact@wastebeminerals.com"
+    },
+    {
       city: "Ras al-Khaimah",
       type: "EMEA Regional Hub",
       address: "RAKEZ Business Zone, Al Nakheel, Ras al-Khaimah, UAE",
@@ -138,8 +166,8 @@ const Contact = () => {
 
               {/* Added value statement to fill space nicely */}
               <div className="hidden lg:block p-8 rounded-[10px] bg-[var(--c-fg)]/[0.03] border border-[var(--c-border)]">
-                <h4 className="text-[var(--c-fg)] font-bold text-sm mb-3 uppercase tracking-tight">Rapid Response Protocol</h4>
-                <p className="text-[var(--c-fg)]/60 text-xs leading-relaxed font-medium">Our global desk operates 24/7 to ensure your inquiry is routed to the correct regional hub within 4 hours.</p>
+                <h4 className="text-[var(--c-fg)] font-bold text-base mb-3 uppercase tracking-tight">Rapid Response Protocol</h4>
+                <p className="text-[var(--c-fg)]/60 text-sm leading-relaxed font-medium">Our global desk operates 24/7 to ensure your inquiry is routed to the correct regional hub within 4 hours.</p>
               </div>
             </div>
 
@@ -246,13 +274,13 @@ const Contact = () => {
                 <MessageCircle size={28} className="text-[var(--c-lime)] mx-auto mb-5" />
                 <h3 className="text-lg font-bold text-[var(--c-fg)] mb-2 uppercase tracking-tight">Live Chat</h3>
                 <p className="text-[var(--c-fg)]/60 text-sm mb-5 max-w-[200px] mx-auto">Real-time support during business hours.</p>
-                <button className="text-[var(--c-lime)] text-[10px] font-bold uppercase tracking-widest hover:tracking-[0.2em] transition-all">Start Chat ↗</button>
+                <button className="text-[var(--c-lime)] text-xs font-bold uppercase tracking-widest hover:tracking-[0.2em] transition-all">Start Chat ↗</button>
              </div>
              <div className="text-center md:border-r border-[var(--c-border)] md:px-12">
                 <Clock size={28} className="text-[var(--c-lime)] mx-auto mb-5" />
                 <h3 className="text-lg font-bold text-[var(--c-fg)] mb-2 uppercase tracking-tight">Working Hours</h3>
                 <p className="text-[var(--c-fg)]/60 text-sm mb-5 max-w-[200px] mx-auto">Mon - Fri: 9:00 AM - 6:00 PM PST</p>
-                <button className="text-[var(--c-lime)] text-[10px] font-bold uppercase tracking-widest hover:tracking-[0.2em] transition-all">Schedule Call ↗</button>
+                <button className="text-[var(--c-lime)] text-xs font-bold uppercase tracking-widest hover:tracking-[0.2em] transition-all">Schedule Call ↗</button>
              </div>
              <div className="text-center md:pl-12">
                 <Globe size={28} className="text-[var(--c-lime)] mx-auto mb-5" />

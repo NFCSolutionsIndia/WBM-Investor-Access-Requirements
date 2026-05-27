@@ -138,7 +138,7 @@ const CircularEconomy = () => {
       {/* Investor Video - Operational Deep Dive */}
       <section className="w-full bg-[#0a0a0a] overflow-hidden py-0">
         <CustomVideoPlayer 
-          src="/WBM-Investor-Access-Requirements/media/Investor22.mp4"
+          src="https://pub-98eacb9c868140728451ae849bec9187.r2.dev/investor22.mp4"
           badgeText="Processing Prowess"
           title="Advanced Recovery Systems"
           className="rounded-none border-x-0 border-y border-[var(--c-border)]"

@@ -2,10 +2,8 @@
 
 import { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowRight, Leaf } from "lucide-react";
-import Button from "@/components/ui/Button";
+import { ArrowRight } from "lucide-react";
 import Particles from "@/components/ui/backgrounds/Particles";
-import Image from "next/image";
 import Link from "next/link";
 
 export default function HeroSection() {
@@ -13,7 +11,10 @@ export default function HeroSection() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
+    const timer = setTimeout(() => {
+      setMounted(true);
+    }, 0);
+    return () => clearTimeout(timer);
   }, []);
 
   const { scrollYProgress } = useScroll({
@@ -148,15 +149,13 @@ export default function HeroSection() {
                   >
                     View Data Centre Specs
                   </Link>
-                  <a 
-                    href="/WBM-Investor-Access-Requirements/media/PitchDeskForWBM.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-3 h-12 md:h-16 px-6 md:px-8 rounded-[10px] border border-white/10 bg-white/5 text-white font-sans font-black text-[11px] md:text-sm uppercase tracking-widest hover:bg-white/10 hover:border-white/20 transition-all"
+                  <Link 
+                    href="/for-you/investor"
+                    className="flex items-center justify-center gap-3 h-12 md:h-16 px-6 md:px-8 rounded-[10px] border border-white/10 bg-white/5 text-white font-sans font-black text-[11px] md:text-sm uppercase tracking-widest hover:bg-white/10 hover:border-white/20 transition-all group"
                   >
-                    <span className="opacity-60 text-sm md:text-lg">📄</span>
-                    <span>Download Pitch Deck</span>
-                  </a>
+                    <span>Investor Journey</span>
+                    <ArrowRight className="w-4 h-4 opacity-70 group-hover:translate-x-1 transition-transform" />
+                  </Link>
                 </div>
 
                 {/* Scroll Down Indicator - COMPACT ON MOBILE */}

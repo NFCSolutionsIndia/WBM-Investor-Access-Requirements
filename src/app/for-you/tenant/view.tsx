@@ -100,7 +100,7 @@ const ForYouTenant = () => {
                ONE FLOOR. <br /> <span className="text-[var(--c-lime)]">FIFTEEN YEARS.</span>
             </h1>
             
-            <p className="text-xl md:text-2xl text-gray-400 font-medium leading-relaxed max-w-2xl mx-auto mb-10">
+            <p className="text-xl md:text-2xl text-gray-400 font-medium leading-relaxed max-w-4xl mx-auto mb-10">
                Plug-and-play compatibility with NVIDIA, Cisco, and Juniper. Six-layer encryption. Built into the only AI-native extraction plant on the planet.
             </p>
 
@@ -366,9 +366,9 @@ const ForYouTenant = () => {
                       { title: "Closed-Loop", desc: "Feeds the Closed-Loop Feedstock wing of our Butterfly.", icon: <Recycle size={20} /> },
                     ].map((item, i) => (
                       <div key={i} className="p-6 rounded-2xl border border-[var(--c-border)] bg-[var(--c-bg)] group hover:border-[var(--c-lime)] transition-all">
-                         <div className="w-8 h-8 rounded-full bg-[var(--c-lime)]/10 flex items-center justify-center text-[var(--c-lime)] mb-4 group-hover:bg-[var(--c-lime)] group-hover:text-black transition-colors">{item.icon}</div>
-                         <h4 className="font-bold text-[var(--c-fg)] uppercase text-xs tracking-widest mb-2">{item.title}</h4>
-                         <p className="text-[10px] text-[var(--c-fg2)] leading-relaxed">{item.desc}</p>
+                         <div className="w-10 h-10 rounded-full bg-[var(--c-lime)]/10 flex items-center justify-center text-[var(--c-lime)] mb-4 group-hover:bg-[var(--c-lime)] group-hover:text-black transition-colors">{item.icon}</div>
+                         <h4 className="font-bold text-[var(--c-fg)] uppercase text-base sm:text-lg tracking-widest mb-2">{item.title}</h4>
+                         <p className="text-sm text-[var(--c-fg2)] leading-relaxed">{item.desc}</p>
                       </div>
                     ))}
                  </div>
@@ -382,13 +382,6 @@ const ForYouTenant = () => {
               >
                  <div className="absolute inset-0 z-0 w-full h-full">
                     <LiquidCoolingAnimation />
-                 </div>
-                 
-                 <div className="relative z-10 pointer-events-none w-full flex flex-col items-center">
-                    <div className="mt-[420px] md:mt-[480px] text-center bg-[var(--c-bg)]/50 backdrop-blur-sm px-4 py-2 rounded-full border border-[var(--c-border)] shadow-sm">
-                       <div className="text-[9px] font-black uppercase tracking-widest text-[var(--c-lime)]">Material Recovery Route</div>
-                       <div className="text-[9px] font-bold text-[var(--c-fg2)] uppercase tracking-widest mt-1">Documented under MOU</div>
-                    </div>
                  </div>
               </motion.div>
            </div>
@@ -447,7 +440,7 @@ const ForYouTenant = () => {
                   transition={{ delay: i * 0.1 }}
                 >
                    <div className="text-6xl md:text-7xl font-black text-[var(--c-lime)] tracking-tighter mb-4 leading-none">{stat.value}{stat.suffix}</div>
-                   <div className="text-[10px] font-bold text-[var(--c-fg)] uppercase tracking-[0.2em]">{stat.label}</div>
+                   <div className="text-xs font-bold text-[var(--c-fg)] uppercase tracking-[0.2em]">{stat.label}</div>
                 </motion.div>
               ))}
            </div>

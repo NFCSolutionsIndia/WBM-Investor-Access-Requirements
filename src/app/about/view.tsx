@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Target, Shield, Zap, Award, ArrowRight, Cpu, Battery, Activity, Layers, Database, FlaskConical, Truck } from 'lucide-react';
 import LineWaves from '@/components/ui/backgrounds/LineWaves';
 import Button from '@/components/ui/Button';
+import { CustomVideoPlayer } from '@/components/investor/CustomVideoPlayer';
 
 const About = () => {
   // ... (team and values remain the same)
@@ -104,12 +105,14 @@ const About = () => {
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="relative"
+              className="relative w-full"
             >
-              <div className="rounded-[24px] overflow-hidden shadow-2xl">
-                <img src="/WBM-Investor-Access-Requirements/media/Rectangle_34.png" alt="Our Facility" className="w-full h-auto" />
-              </div>
-              
+              <CustomVideoPlayer 
+                src="https://pub-98eacb9c868140728451ae849bec9187.r2.dev/UpdatedUrbanMining.mp4"
+                badgeText="Facility Operations"
+                title="Urban Mining"
+                className="rounded-[24px] overflow-hidden shadow-2xl"
+              />
             </motion.div>
           </div>
         </div>

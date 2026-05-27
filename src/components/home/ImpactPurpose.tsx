@@ -1,9 +1,9 @@
 "use client";
 
-import { useRef, useState, useEffect } from "react";
+import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Play, Rewind, FastForward } from "lucide-react";
 import ScrollReveal from "@/components/ui/effects/ScrollReveal";
+import { CustomVideoPlayer } from "@/components/investor/CustomVideoPlayer";
 
 const BLOCKS = [
   {
@@ -46,41 +46,9 @@ function Block({ block, index }: { block: typeof BLOCKS[0]; index: number }) {
 }
 
 export default function ImpactPurpose() {
-  const videoRef = useRef<HTMLVideoElement>(null);
   const sectionRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: sectionRef, offset: ["start end", "end start"] });
   const videoScale = useTransform(scrollYProgress, [0, 0.5], [1.06, 1]);
-
-  const [isPlaying, setIsPlaying] = useState(false);
-
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-    
-    const handlePlay = () => setIsPlaying(true);
-    const handlePause = () => setIsPlaying(false);
-
-    video.addEventListener("play", handlePlay);
-    video.addEventListener("pause", handlePause);
-
-    return () => {
-      video.removeEventListener("play", handlePlay);
-      video.removeEventListener("pause", handlePause);
-    };
-  }, []);
-
-  const togglePlay = () => {
-    if (videoRef.current) {
-      if (isPlaying) videoRef.current.pause();
-      else videoRef.current.play();
-    }
-  };
-
-  const skip = (amount: number) => {
-    if (videoRef.current) {
-      videoRef.current.currentTime += amount;
-    }
-  };
 
   return (
     <section ref={sectionRef} className="relative w-full bg-[var(--c-bg)] transition-colors duration-500 overflow-hidden py-6 md:py-10">
@@ -119,42 +87,14 @@ export default function ImpactPurpose() {
       {/* ── BOTTOM: Video ──────────────────────────────────────────────── */}
       <div className="max-w-7xl mx-auto px-6">
         <ScrollReveal>
-          <div className="w-full overflow-hidden rounded-[24px] relative group bg-black border border-white/5">
+          <div className="w-full overflow-hidden rounded-[24px] relative group bg-black border border-white/5 shadow-2xl">
             <motion.div style={{ scale: videoScale }} className="w-full">
-              <video
-                ref={videoRef}
-                src="/WBM-Investor-Access-Requirements/media/WhatweDo.mp4"
-                poster="/WBM-Investor-Access-Requirements/media/ThumbnailImg.png"
-                playsInline
-                className="w-full h-auto block opacity-80 group-hover:opacity-100 transition-opacity duration-700"
-                onClick={togglePlay}
+              <CustomVideoPlayer 
+                src="https://pub-98eacb9c868140728451ae849bec9187.r2.dev/whatwedo.mp4"
+                badgeText="Resource Recovery"
+                title="What We Do"
+                className="rounded-none border-0"
               />
-              {!isPlaying && (
-                <div className="absolute inset-0 flex items-center justify-center z-10">
-                  <div className="flex items-center gap-6">
-                    <button
-                      onClick={() => skip(-10)}
-                      className="text-white/80 hover:text-[var(--c-highlight)] transition-colors p-2"
-                    >
-                      <Rewind className="w-8 h-8" />
-                    </button>
-
-                    <div 
-                      className="w-20 h-20 md:w-28 md:h-28 bg-[var(--c-highlight)]/20 backdrop-blur-md rounded-full flex items-center justify-center shadow-2xl cursor-pointer hover:scale-110 transition-transform border border-white/20"
-                      onClick={togglePlay}
-                    >
-                      <Play className="w-10 h-10 md:w-14 md:h-14 fill-white text-white ml-1" />
-                    </div>
-
-                    <button
-                      onClick={() => skip(10)}
-                      className="text-white/80 hover:text-[var(--c-highlight)] transition-colors p-2"
-                    >
-                      <FastForward className="w-8 h-8" />
-                    </button>
-                  </div>
-                </div>
-              )}
             </motion.div>
           </div>
         </ScrollReveal>

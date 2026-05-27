@@ -125,15 +125,32 @@ export const CustomVideoPlayer: React.FC<CustomVideoPlayerProps> = ({
     };
   }, []);
 
+  useEffect(() => {
+    setCurrentTime(0);
+    setDuration(0);
+    setIsPlaying(false);
+    if (videoRef.current) {
+      videoRef.current.currentTime = 0;
+      if (videoRef.current.duration) {
+        setDuration(videoRef.current.duration);
+      }
+    }
+  }, [src]);
+
   // Sync state with HTML5 video events
   const handleTimeUpdate = () => {
-    if (videoRef.current && !isDragging) {
-      setCurrentTime(videoRef.current.currentTime);
+    if (videoRef.current) {
+      if (!isDragging) {
+        setCurrentTime(videoRef.current.currentTime);
+      }
+      if (videoRef.current.duration && duration !== videoRef.current.duration) {
+        setDuration(videoRef.current.duration);
+      }
     }
   };
 
   const handleLoadedMetadata = () => {
-    if (videoRef.current) {
+    if (videoRef.current && videoRef.current.duration) {
       setDuration(videoRef.current.duration);
     }
   };
@@ -243,6 +260,9 @@ export const CustomVideoPlayer: React.FC<CustomVideoPlayerProps> = ({
         disablePictureInPicture
         onTimeUpdate={handleTimeUpdate}
         onLoadedMetadata={handleLoadedMetadata}
+        onDurationChange={handleLoadedMetadata}
+        onLoadedData={handleLoadedMetadata}
+        onCanPlay={handleLoadedMetadata}
         onPlay={() => setIsPlaying(true)}
         onPause={() => setIsPlaying(false)}
         className="w-full h-auto block cursor-pointer"

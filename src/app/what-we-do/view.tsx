@@ -41,32 +41,32 @@ const WhatWeDo = () => {
               Transforming three integrated waste streams into 11 critical minerals at OEM-grade purity.
             </p>
 
-            <div className="flex flex-wrap justify-center gap-6">
-               <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-[var(--c-lime)]">
-                    <Database size={20} />
+            <div className="flex flex-wrap justify-center gap-12 md:gap-16">
+               <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-[var(--c-lime)]">
+                    <Database size={24} />
                   </div>
                   <div className="text-left">
-                    <div className="text-white font-bold uppercase text-xs">E-Waste</div>
-                    <div className="text-white/40 text-[10px]">PCBs & Chips</div>
+                    <div className="text-white font-bold uppercase text-sm">E-Waste</div>
+                    <div className="text-white/40 text-xs">PCBs & Chips</div>
                   </div>
                </div>
-               <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-[var(--c-lime)]">
-                    <Battery size={20} />
+               <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-[var(--c-lime)]">
+                    <Battery size={24} />
                   </div>
                   <div className="text-left">
-                    <div className="text-white font-bold uppercase text-xs">B-Waste</div>
-                    <div className="text-white/40 text-[10px]">Li-ion Batteries</div>
+                    <div className="text-white font-bold uppercase text-sm">B-Waste</div>
+                    <div className="text-white/40 text-xs">Li-ion Batteries</div>
                   </div>
                </div>
-               <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-[var(--c-lime)]">
-                    <Zap size={20} />
+               <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-[var(--c-lime)]">
+                    <Zap size={24} />
                   </div>
                   <div className="text-left">
-                    <div className="text-white font-bold uppercase text-xs">Rare Earth Elements</div>
-                    <div className="text-white/40 text-[10px]">Rare Earth Elements</div>
+                    <div className="text-white font-bold uppercase text-sm">Rare Earth Magnets</div>
+                    <div className="text-white/40 text-xs">Rare-Earth Elements</div>
                   </div>
                </div>
             </div>

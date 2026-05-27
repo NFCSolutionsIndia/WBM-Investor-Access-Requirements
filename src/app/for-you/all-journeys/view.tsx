@@ -90,7 +90,7 @@ const ForAllJourneys = () => {
                For You. <br /> <span className="text-[var(--c-lime)]">Six Journeys.</span>
             </h1>
             
-            <p className="text-xl md:text-2xl text-gray-400 font-medium leading-relaxed max-w-2xl mx-auto mb-10">
+            <p className="text-xl md:text-2xl text-gray-400 font-medium leading-relaxed max-w-4xl mx-auto mb-10">
                Whether you fund critical-mineral theses, source lithium, supply feedstock, or lease compute — there's a path built for you.
             </p>
           </motion.div>

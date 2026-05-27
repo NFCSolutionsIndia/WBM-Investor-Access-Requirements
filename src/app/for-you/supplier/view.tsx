@@ -89,7 +89,7 @@ const ForYouSupplier = () => {
                YOUR WASTE IS <br /> <span className="text-[var(--c-lime)] text-glow">OUR FEEDSTOCK.</span>
             </h1>
             
-            <p className="text-xl md:text-2xl text-gray-400 font-medium leading-relaxed max-w-2xl mx-auto mb-10">
+            <p className="text-xl md:text-2xl text-gray-400 font-medium leading-relaxed max-w-4xl mx-auto mb-10">
                We accept PCBs, lithium-ion batteries, and decommissioned magnets. Tipping fees paid at intake. Pickup logistics included.
             </p>
 
@@ -279,7 +279,7 @@ const ForYouSupplier = () => {
                   transition={{ delay: i * 0.1 }}
                   className="p-8 rounded-[24px] bg-[var(--c-bg)] border border-[var(--c-border)] hover:border-[var(--c-lime)] transition-all shadow-lg"
                 >
-                   <div className="text-[10px] font-black text-[var(--c-fg2)] uppercase tracking-widest mb-6">0{i+1}</div>
+                   <div className="text-sm font-black text-[var(--c-fg2)] uppercase tracking-widest mb-6">0{i+1}</div>
                    <div className="w-10 h-10 rounded-xl bg-[var(--c-lime)]/10 flex items-center justify-center text-[var(--c-lime)] mb-6">
                       {point.icon}
                    </div>
@@ -306,7 +306,7 @@ const ForYouSupplier = () => {
                    <div className="text-6xl md:text-7xl font-black text-[var(--c-fg)] tracking-tighter mb-4 leading-none">
                       <span className="text-[var(--c-lime)]">{stat.value}</span>{stat.suffix}
                    </div>
-                   <div className="text-[10px] font-black text-[var(--c-fg2)] uppercase tracking-[0.2em]">{stat.label}</div>
+                   <div className="text-xs font-black text-[var(--c-fg2)] uppercase tracking-[0.2em]">{stat.label}</div>
                 </motion.div>
               ))}
            </div>

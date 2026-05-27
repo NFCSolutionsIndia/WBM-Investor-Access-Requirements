@@ -94,7 +94,7 @@ const ForYouGovernment = () => {
                STRATEGIC MINERAL <br /> <span className="text-[var(--c-lime)]">INDEPENDENCE.</span>
             </h1>
             
-            <p className="text-xl md:text-2xl text-gray-400 font-medium leading-relaxed max-w-2xl mx-auto mb-10">
+            <p className="text-xl md:text-2xl text-gray-400 font-medium leading-relaxed max-w-4xl mx-auto mb-10">
                Every state has trash. We turn it into critical minerals — and into jobs that upskill your existing workforce.
             </p>
 

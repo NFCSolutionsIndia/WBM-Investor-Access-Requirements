@@ -91,7 +91,7 @@ const ForYouInvestor = () => {
               FOUR OFFERINGS. FIVE REVENUE STREAMS. <br /> <span className="text-[var(--c-lime)] text-glow">TEN-YEAR HORIZON.</span>
             </h1>
             
-            <p className="text-xl md:text-2xl text-gray-400 font-medium leading-relaxed max-w-2xl mx-auto mb-10">
+            <p className="text-xl md:text-2xl text-gray-400 font-medium leading-relaxed max-w-4xl mx-auto mb-10">
               A recycling manufacturer with semiconductor-grade unit economics. Built for ESG mandates and critical-mineral theses alike.
             </p>
 

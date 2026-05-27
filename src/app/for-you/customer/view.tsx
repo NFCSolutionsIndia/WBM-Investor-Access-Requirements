@@ -130,7 +130,7 @@ const ForYouCustomer = () => {
                SUPPLY SECURED. <br /> <span className="text-[var(--c-highlight)] lime-glow-text">DIVERSIFY YOUR SOURCE.</span>
             </h1>
             
-            <p className="text-xl md:text-2xl text-gray-400 font-medium leading-relaxed max-w-2xl mx-auto mb-10">
+            <p className="text-xl md:text-2xl text-gray-400 font-medium leading-relaxed max-w-4xl mx-auto mb-10">
                Engineering-grade supply, not marketing claims. Diversify away from single-country mineral dependency.
             </p>
 
@@ -592,12 +592,12 @@ const ForYouCustomer = () => {
               <table className="w-full text-left border-collapse">
                  <thead className="sticky top-0 bg-[var(--c-bg2)] z-10">
                     <tr className="border-b border-[var(--c-border)]">
-                       <th className="p-6 text-[10px] font-black uppercase tracking-widest text-[var(--c-fg2)]">Mineral</th>
-                       <th className="p-6 text-[10px] font-black uppercase tracking-widest text-[var(--c-fg2)]">Group</th>
-                       <th className="p-6 text-[10px] font-black uppercase tracking-widest text-[var(--c-fg2)]">Purity</th>
-                       <th className="p-6 text-[10px] font-black uppercase tracking-widest text-[var(--c-fg2)]">Lot</th>
-                       <th className="p-6 text-[10px] font-black uppercase tracking-widest text-[var(--c-fg2)]">Lead Time</th>
-                       <th className="p-6 text-[10px] font-black uppercase tracking-widest text-[var(--c-fg2)]">Downstream</th>
+                       <th className="p-6 text-xs font-black uppercase tracking-widest text-[var(--c-fg2)]">Mineral</th>
+                       <th className="p-6 text-xs font-black uppercase tracking-widest text-[var(--c-fg2)]">Group</th>
+                       <th className="p-6 text-xs font-black uppercase tracking-widest text-[var(--c-fg2)]">Purity</th>
+                       <th className="p-6 text-xs font-black uppercase tracking-widest text-[var(--c-fg2)]">Lot</th>
+                       <th className="p-6 text-xs font-black uppercase tracking-widest text-[var(--c-fg2)]">Lead Time</th>
+                       <th className="p-6 text-xs font-black uppercase tracking-widest text-[var(--c-fg2)]">Downstream</th>
                        <th className="p-6 text-right"></th>
                     </tr>
                  </thead>

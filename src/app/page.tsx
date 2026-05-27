@@ -17,6 +17,7 @@ import IndustriesQuickView from "@/components/home/IndustriesQuickView";
 import TechnologySnapshot from "@/components/home/TechnologySnapshot";
 import DataCenterBlock from "@/components/home/DataCenterBlock";
 import WhyNow from "@/components/home/WhyNow";
+// import MicrochipViewerSection from "@/components/home/MicrochipViewerSection";
 
 export default function Home() {
   const { theme } = useTheme();
@@ -34,6 +35,9 @@ export default function Home() {
 
         {/* 3. How It Works (The orchestration layer) */}
         <HowItWorks />
+
+        {/* 3.5. Interactive 3D Microchip Viewer */}
+        {/* <MicrochipViewerSection /> */}
 
         {/* 4. Technology Snapshot (Inside look at LiBERT) */}
         <TechnologySnapshot />

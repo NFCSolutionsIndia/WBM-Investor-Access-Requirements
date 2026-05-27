@@ -98,7 +98,7 @@ const ForYouAcademia = () => {
                THE NEXT FRONTIER <br /> <span className="text-[var(--c-lime)]">OF METALLURGY.</span>
             </h1>
             
-            <p className="text-xl md:text-2xl text-gray-400 font-medium leading-relaxed max-w-2xl mx-auto mb-10">
+            <p className="text-xl md:text-2xl text-gray-400 font-medium leading-relaxed max-w-4xl mx-auto mb-10">
                Research collaborations, white papers, internships, and guest lectures — built around an engineering-first culture with published SLAs, measurable KPIs, and operational transparency.
             </p>
 
@@ -383,7 +383,7 @@ const ForYouAcademia = () => {
        {/* Proof Points Stats */}
        <section className="py-10 bg-[var(--c-bg)] relative">
          <div className="max-w-7xl mx-auto px-6 text-center relative z-10">
-            <h2 className="text-sm font-black tracking-[0.3em] text-[var(--c-fg2)] uppercase mb-10">Engagement at a glance</h2>
+            <h2 className="text-base font-black tracking-[0.3em] text-[var(--c-fg2)] uppercase mb-10">Engagement at a glance</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
                {stats.map((stat, i) => (
                  <motion.div 
@@ -396,11 +396,11 @@ const ForYouAcademia = () => {
                     <div className="text-6xl md:text-7xl font-black text-[var(--c-fg)] tracking-tighter mb-4 leading-none">
                        <span className="text-[var(--c-lime)]">{stat.value}</span>{stat.suffix}
                     </div>
-                    <div className="text-[10px] font-black text-[var(--c-fg2)] uppercase tracking-[0.2em]">{stat.label}</div>
+                    <div className="text-xs font-black text-[var(--c-fg2)] uppercase tracking-[0.2em]">{stat.label}</div>
                  </motion.div>
                ))}
             </div>
-            <p className="mt-16 text-[var(--c-fg2)] text-[10px] font-bold uppercase tracking-widest italic">Full bibliography available in our SLA Appendix.</p>
+            <p className="mt-16 text-[var(--c-fg2)] text-xs font-bold uppercase tracking-widest italic">Full bibliography available in our SLA Appendix.</p>
          </div>
        </section>
  
