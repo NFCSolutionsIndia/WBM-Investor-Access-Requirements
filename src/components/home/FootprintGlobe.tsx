@@ -100,7 +100,7 @@ function GlobeInstance({
       .labelsTransitionDuration(400)
       .arcsData(arcsData)
       .arcColor('color')
-      .arcAltitude(0.25)
+      .arcAltitude(0.2)
       .arcDashLength(0.5)
       .arcDashGap(2)
       .arcDashAnimateTime(1500)
@@ -232,12 +232,16 @@ function GlobeInstance({
                 className="w-[280px] sm:w-[320px] max-w-[calc(100vw-32px)] rounded-[10px] p-4 md:p-5 shadow-2xl border backdrop-blur-2xl bg-[#080c10]/98 border-white/20 relative overflow-hidden text-left pointer-events-none"
                 style={{ transform: 'translateX(0px)', transition: 'transform 0.1s ease-out' }}
               >
-                <div className="absolute top-0 left-0 w-full h-1" style={{ background: `linear-gradient(90deg, transparent, ${locData.color}, transparent)` }} />
+                <div className="absolute top-0 left-0 w-full h-1" style={{ background: `linear-gradient(90deg, transparent, ${locData.status === 'operational' ? '#c1ff00' : '#839470'}, transparent)` }} />
                 
                 <div className="flex items-center justify-between mb-2">
                   <span className="font-sans font-black text-[9px] md:text-[10px] uppercase tracking-widest text-white/50">{locData.country}</span>
                   <span className="font-sans font-bold text-[8px] uppercase tracking-widest px-2 py-0.5 rounded-full"
-                    style={{ color: locData.color, background: `${locData.color}15`, border: `1px solid ${locData.color}40` }}>
+                    style={{ 
+                      color: locData.status === 'operational' ? '#c1ff00' : '#839470', 
+                      background: locData.status === 'operational' ? 'rgba(193, 255, 0, 0.1)' : 'rgba(131, 148, 112, 0.1)', 
+                      border: locData.status === 'operational' ? '1px solid rgba(193, 255, 0, 0.3)' : '1px solid rgba(131, 148, 112, 0.3)' 
+                    }}>
                     {locData.status}
                   </span>
                 </div>
@@ -245,12 +249,12 @@ function GlobeInstance({
                 <p className="font-sans text-[10px] md:text-[11px] leading-relaxed mb-4 text-white/60">{locData.desc}</p>
                 <div className="grid grid-cols-2 gap-2">
                   <div className="rounded-lg p-2 border border-white/10 bg-white/5 text-center">
-                    <div className="font-sans text-[8px] uppercase tracking-widest mb-0.5 text-white/40">Footprint</div>
-                    <div className="font-sans font-bold text-[9px] md:text-[10px] text-white/90">{locData.footprint}</div>
+                    <div className="font-sans text-[10px] md:text-[11px] uppercase tracking-widest mb-0.5 text-white/50">Footprint</div>
+                    <div className="font-sans font-bold text-[12px] md:text-[13px] text-white/90">{locData.footprint}</div>
                   </div>
                   <div className="rounded-lg p-2 border border-white/10 bg-white/5 text-center">
-                    <div className="font-sans text-[8px] uppercase tracking-widest mb-0.5 text-white/40">Capacity</div>
-                    <div className="font-sans font-bold text-[9px] md:text-[10px] text-white/90">{locData.capacity}</div>
+                    <div className="font-sans text-[10px] md:text-[11px] uppercase tracking-widest mb-0.5 text-white/50">Capacity</div>
+                    <div className="font-sans font-bold text-[12px] md:text-[13px] text-white/90">{locData.capacity}</div>
                   </div>
                 </div>
                 
@@ -293,12 +297,12 @@ export default function FootprintGlobe({
   const isRotationPaused = !!hoveredId || isHoveringGlobePoint;
 
   return (
-    <section className="relative w-full h-[450px] md:h-[650px] bg-transparent overflow-hidden flex flex-col items-center justify-center">
+    <section className="relative w-full h-[500px] md:h-[700px] bg-transparent overflow-hidden flex flex-col items-center justify-center">
       <div className="absolute inset-0 bg-[#839470]/5 rounded-full blur-[200px] pointer-events-none" />
 
       <div className="w-full h-full">
         <Canvas>
-          <PerspectiveCamera makeDefault position={[0, 0, 320]} />
+          <PerspectiveCamera makeDefault position={[0, 0, 265]} />
           <ambientLight intensity={3} />
           <directionalLight position={[100, 100, 100]} intensity={2} />
           <pointLight position={[-100, -100, -100]} intensity={1} color="#839470" />

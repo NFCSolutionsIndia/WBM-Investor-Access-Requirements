@@ -59,7 +59,7 @@ export default function GlobalFootprint({ isDark = true }: { isDark?: boolean })
       </div>
 
       {/* ── INTERACTIVE 3D GLOBE ── */}
-      <div className="relative z-0 flex-1 min-h-[350px] md:min-h-[500px] flex items-center justify-center mt-6 md:mt-16 overflow-hidden">
+      <div className="relative z-0 flex-1 min-h-[400px] md:min-h-[580px] flex items-center justify-center mt-6 md:mt-16">
         <div className="w-full h-full max-w-5xl px-4">
           <FootprintGlobe 
             hoveredId={activeHoverId} 
@@ -86,8 +86,19 @@ export default function GlobalFootprint({ isDark = true }: { isDark?: boolean })
               style={{ background: cardBg }}
             >
               <div className="flex items-center gap-2 mb-1.5 md:mb-2">
-                <div className="w-2.5 h-2.5 rounded-full shadow-[0_0_8px_currentColor]" style={{ background: loc.color, color: loc.color }} />
-                <span className="font-sans font-bold text-[8px] md:text-[9px] uppercase tracking-widest" style={{ color: loc.color }}>{loc.status}</span>
+                <div 
+                  className={`w-2.5 h-2.5 rounded-full ${loc.status === 'operational' ? 'shadow-[0_0_10px_#c1ff00] animate-pulse' : 'shadow-[0_0_6px_#839470]'}`} 
+                  style={{ 
+                    background: loc.status === 'operational' ? '#c1ff00' : '#839470', 
+                    color: loc.status === 'operational' ? '#c1ff00' : '#839470' 
+                  }} 
+                />
+                <span 
+                  className="font-sans font-bold text-[8px] md:text-[9px] uppercase tracking-widest" 
+                  style={{ color: loc.status === 'operational' ? '#c1ff00' : '#839470' }}
+                >
+                  {loc.status}
+                </span>
               </div>
               <div className="font-sans font-black text-base md:text-lg text-white">{loc.city}</div>
               <div className="font-sans text-[9px] md:text-[10px] uppercase tracking-wide text-white/50">{loc.country}</div>
@@ -104,12 +115,16 @@ export default function GlobalFootprint({ isDark = true }: { isDark?: boolean })
                   className="absolute z-[200] bottom-[calc(100%+12px)] left-0 right-0 md:left-1/2 md:right-auto md:-translate-x-1/2 md:w-[320px] pointer-events-none"
                 >
                   <div className="rounded-[10px] p-4 md:p-5 shadow-2xl border backdrop-blur-2xl bg-[#080c10]/98 border-white/20 relative overflow-hidden">
-                    <div className="absolute top-0 left-0 w-full h-1" style={{ background: `linear-gradient(90deg, transparent, ${loc.color}, transparent)` }} />
+                    <div className="absolute top-0 left-0 w-full h-1" style={{ background: `linear-gradient(90deg, transparent, ${loc.status === 'operational' ? '#c1ff00' : '#839470'}, transparent)` }} />
                     
                     <div className="flex items-center justify-between mb-2">
                       <span className="font-sans font-black text-[9px] md:text-[10px] uppercase tracking-widest text-white/50">{loc.country}</span>
                       <span className="font-sans font-bold text-[8px] uppercase tracking-widest px-2 py-0.5 rounded-full"
-                        style={{ color: loc.color, background: `${loc.color}15`, border: `1px solid ${loc.color}40` }}>
+                        style={{ 
+                          color: loc.status === 'operational' ? '#c1ff00' : '#839470', 
+                          background: loc.status === 'operational' ? 'rgba(193, 255, 0, 0.1)' : 'rgba(131, 148, 112, 0.1)', 
+                          border: loc.status === 'operational' ? '1px solid rgba(193, 255, 0, 0.3)' : '1px solid rgba(131, 148, 112, 0.3)' 
+                        }}>
                         {loc.status}
                       </span>
                     </div>
@@ -117,12 +132,12 @@ export default function GlobalFootprint({ isDark = true }: { isDark?: boolean })
                     <p className="font-sans text-[10px] md:text-[11px] leading-relaxed mb-4 text-white/60">{loc.desc}</p>
                     <div className="grid grid-cols-2 gap-2">
                       <div className="rounded-lg p-2 border border-white/10 bg-white/5 text-center">
-                        <div className="font-sans text-[8px] uppercase tracking-widest mb-0.5 text-white/40">Footprint</div>
-                        <div className="font-sans font-bold text-[9px] md:text-[10px] text-white/90">{loc.footprint}</div>
+                        <div className="font-sans text-[10px] md:text-[11px] uppercase tracking-widest mb-0.5 text-white/50">Footprint</div>
+                        <div className="font-sans font-bold text-[12px] md:text-[13px] text-white/90">{loc.footprint}</div>
                       </div>
                       <div className="rounded-lg p-2 border border-white/10 bg-white/5 text-center">
-                        <div className="font-sans text-[8px] uppercase tracking-widest mb-0.5 text-white/40">Capacity</div>
-                        <div className="font-sans font-bold text-[9px] md:text-[10px] text-white/90">{loc.capacity}</div>
+                        <div className="font-sans text-[10px] md:text-[11px] uppercase tracking-widest mb-0.5 text-white/50">Capacity</div>
+                        <div className="font-sans font-bold text-[12px] md:text-[13px] text-white/90">{loc.capacity}</div>
                       </div>
                     </div>
                     
