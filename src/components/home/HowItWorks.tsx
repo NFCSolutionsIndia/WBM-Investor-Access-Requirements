@@ -117,10 +117,10 @@ export default function HowItWorks() {
   const [activeStep, setActiveStep] = useState(0);
 
   return (
-    <section className="relative w-full bg-[var(--c-bg)] transition-colors duration-500" id="process">
+    <section className="relative w-full bg-[var(--c-bg)] transition-colors duration-500 py-10" id="process">
 
       {/* Intro Header */}
-      <div className="max-w-7xl mx-auto px-6 py-10">
+      <div className="max-w-7xl mx-auto px-6 pt-0 pb-10">
         <ScrollReveal className="text-center max-w-3xl mx-auto">
           <div className="inline-flex items-center gap-3 mb-6 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 shadow-sm">
             <div className="w-2 h-2 rounded-full bg-[var(--c-highlight)] animate-pulse" />
@@ -139,7 +139,7 @@ export default function HowItWorks() {
       </div>
 
       {/* Scroll Narrative Section */}
-      <div className="w-full relative flex flex-col lg:flex-row pb-24">
+      <div className="w-full relative flex flex-col lg:flex-row pb-0">
 
         {/* Left Side: Scrolling Content */}
         <div className="w-full lg:w-1/2 lg:pl-[max(1.5rem,calc((100vw-80rem)/2))] lg:pr-20 px-6 relative z-10">

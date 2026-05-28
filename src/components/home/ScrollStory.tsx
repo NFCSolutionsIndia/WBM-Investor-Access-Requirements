@@ -50,7 +50,7 @@ export default function ScrollStory() {
   const router = useRouter();
   
   return (
-    <section className="relative w-full py-16 md:py-24 bg-[var(--c-bg)] text-[var(--c-fg)] transition-colors duration-500 overflow-hidden border-y border-[var(--c-bg2)]">
+    <section className="relative w-full py-10 bg-[var(--c-bg)] text-[var(--c-fg)] transition-colors duration-500 overflow-hidden border-y border-[var(--c-bg2)]">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
 
         {/* Header */}
@@ -120,25 +120,25 @@ export default function ScrollStory() {
                 </div>
               </div>
 
-              {/* Features Panes Below the Card */}
+              {/* Features Pane Below the Card */}
               <div className="mt-6 md:mt-8 flex-1 flex flex-col">
                 <div className="mb-3 px-1">
                   <span className="text-[10px] font-black uppercase tracking-[0.2em] opacity-40 text-[var(--c-fg)]">Features</span>
                 </div>
-                <div className="grid grid-cols-1 gap-2.5">
-                  {ch.features.map((feature, idx) => (
-                    <div 
-                      key={idx} 
-                      className="flex items-center gap-3.5 p-3.5 rounded-xl border border-[var(--c-fg)]/5 bg-[var(--c-fg)]/[0.02] backdrop-blur-sm transition-all duration-300 hover:bg-[var(--c-lime)]/[0.04] hover:border-[var(--c-lime)]/25 hover:translate-x-1 group/pane shadow-sm hover:shadow-[0_4px_12px_rgba(0,0,0,0.2)] cursor-pointer"
-                    >
-                      <div className="w-6 h-6 rounded-full bg-[var(--c-lime)]/10 flex items-center justify-center shrink-0 border border-[var(--c-lime)]/20 transition-all duration-300 group-hover/pane:scale-110 group-hover/pane:bg-[var(--c-lime)]/20">
-                        <Check size={11} className="text-[var(--c-lime)] shrink-0" />
-                      </div>
-                      <span className="text-sm md:text-[15px] font-bold text-[var(--c-fg)] opacity-80 leading-snug group-hover/pane:opacity-100 group-hover/pane:text-[var(--c-fg)] transition-all">
-                        {feature}
-                      </span>
-                    </div>
-                  ))}
+                {/* One single pane containing all features */}
+                <div className="flex-1 p-5 rounded-2xl border border-[var(--c-fg)]/5 bg-[var(--c-fg)]/[0.02] backdrop-blur-sm shadow-sm hover:border-[var(--c-lime)]/20 hover:bg-[var(--c-fg)]/[0.03] transition-all duration-300 group/pane">
+                  <ul className="space-y-4">
+                    {ch.features.map((feature, idx) => (
+                      <li key={idx} className="flex items-start gap-3.5 group/item">
+                        <div className="w-5.5 h-5.5 rounded-full bg-[var(--c-lime)]/10 flex items-center justify-center shrink-0 mt-0.5 border border-[var(--c-lime)]/20 transition-all duration-300 group-hover/pane:scale-105 group-hover/item:bg-[var(--c-lime)]/20">
+                          <Check size={10} className="text-[var(--c-lime)] shrink-0" />
+                        </div>
+                        <span className="text-sm md:text-[15px] font-bold text-[var(--c-fg)] opacity-80 leading-snug group-hover/item:opacity-100 group-hover/item:text-[var(--c-fg)] transition-all">
+                          {feature}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
             </ScrollReveal>

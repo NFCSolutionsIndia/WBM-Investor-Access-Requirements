@@ -32,8 +32,8 @@ export default function GlobalFootprint({ isDark = true }: { isDark?: boolean })
   return (
     <section
       id="about"
-      className="relative w-full overflow-hidden flex flex-col justify-between"
-      style={{ background: sectionBg, minHeight: "100vh" }}
+      className="relative w-full overflow-hidden flex flex-col justify-between py-10"
+      style={{ background: sectionBg }}
     >
       {/* ── BACKGROUND GLOWS ── */}
       <div className="absolute inset-0 z-0 pointer-events-none">
@@ -42,7 +42,7 @@ export default function GlobalFootprint({ isDark = true }: { isDark?: boolean })
       </div>
 
       {/* ── HEADER ── */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 pt-16 md:pt-24 pb-0 text-center w-full">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 pt-0 pb-0 text-center w-full">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
           <div className="inline-flex items-center gap-3 mb-4 md:mb-6 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm">
             <div className="w-2 h-2 rounded-full bg-[#839470] animate-pulse" />
@@ -71,7 +71,7 @@ export default function GlobalFootprint({ isDark = true }: { isDark?: boolean })
       </div>
 
       {/* ── LEGEND CARDS ── */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 pb-12 md:pb-24 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 md:gap-4 w-full">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 pb-0 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 md:gap-4 w-full">
         {LOCS.map((loc, i) => (
           <div key={loc.id} className="relative">
             <motion.div

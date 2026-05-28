@@ -51,7 +51,7 @@ export default function ImpactPurpose() {
   const videoScale = useTransform(scrollYProgress, [0, 0.5], [1.06, 1]);
 
   return (
-    <section ref={sectionRef} className="relative w-full bg-[var(--c-bg)] transition-colors duration-500 overflow-hidden py-6 md:py-10">
+    <section ref={sectionRef} className="relative w-full bg-[var(--c-bg)] transition-colors duration-500 overflow-hidden py-10">
 
       {/* ── TOP: Heading ───────────────────────────────────────────────── */}
       <div className="max-w-5xl mx-auto px-6 mb-10 md:mb-10 text-center">

@@ -35,7 +35,7 @@ export default function MetalTicker() {
   const doubled = [...metals, ...metals];
 
   return (
-    <section className="py-5 border-b border-[var(--c-border)] bg-[var(--c-bg2)] overflow-hidden relative">
+    <section className="py-10 border-b border-[var(--c-border)] bg-[var(--c-bg2)] overflow-hidden relative">
       {/* Left fade */}
       <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-[var(--c-bg2)] to-transparent z-10 pointer-events-none" />
       {/* Right fade */}
